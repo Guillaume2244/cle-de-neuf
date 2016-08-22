@@ -6,7 +6,10 @@ class User < ApplicationRecord
 
   has_many :books
   has_many :garages
+  has_many :checkups, through: :books
+
 
   validates :email, presence: true
+
 
 end
