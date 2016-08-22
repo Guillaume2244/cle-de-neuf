@@ -1,0 +1,2 @@
+class CheckupItem < ApplicationRecord
+end

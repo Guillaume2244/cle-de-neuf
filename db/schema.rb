@@ -10,10 +10,57 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160822153537) do
+ActiveRecord::Schema.define(version: 20160822161348) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "books", force: :cascade do |t|
+    t.string   "registration_plate"
+    t.string   "initial_km"
+    t.integer  "user_id"
+    t.string   "initial_entry_into_service"
+    t.date     "circulation_date"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["user_id"], name: "index_books_on_user_id", using: :btree
+  end
+
+  create_table "checkup_items", force: :cascade do |t|
+    t.string   "type"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "checkups", force: :cascade do |t|
+    t.integer  "books_id"
+    t.date     "effective_date"
+    t.integer  "checkup_item_id"
+    t.integer  "garage_id"
+    t.string   "km_ondate"
+    t.date     "estimated_date"
+    t.boolean  "done"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["books_id"], name: "index_checkups_on_books_id", using: :btree
+    t.index ["checkup_item_id"], name: "index_checkups_on_checkup_item_id", using: :btree
+    t.index ["garage_id"], name: "index_checkups_on_garage_id", using: :btree
+  end
+
+  create_table "garages", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.string   "siret"
+    t.string   "address"
+    t.string   "city"
+    t.string   "zip_code"
+    t.string   "phone_number"
+    t.string   "photo"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["user_id"], name: "index_garages_on_user_id", using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -28,8 +75,18 @@ ActiveRecord::Schema.define(version: 20160822153537) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "phone_number"
+    t.string   "photo"
+    t.boolean  "admin"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "books", "users"
+  add_foreign_key "checkups", "books", column: "books_id"
+  add_foreign_key "checkups", "checkup_items"
+  add_foreign_key "checkups", "garages"
+  add_foreign_key "garages", "users"
 end
