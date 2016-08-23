@@ -1,0 +1,46 @@
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-3">
+      <p>Mon véhicule</p>
+      <%= @book.registration_plate %>
+    </div>
+  </div>
+</div>
+<hr>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-3">
+      <p>Reminders</p>
+      <%@checkups.each do |checkup|%>
+      <%= checkup.estimated_date %>
+      <%= checkup.km_ondate %>
+      <br>
+      <%end%>
+    </div>
+  </div>
+</div>
+
+<hr>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-3">
+      <p>Books</p>
+      <p><% @books.each do |book| %>
+        <%= book.registration_plate %>
+        <td><%= link_to 'Show', book %></td>
+        <% if policy(book).edit? %>
+        <td><%= link_to 'Edit', edit_book_path(book) %></td>
+        <% end %>
+        <% if policy(book).destroy? %>
+        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </p>
+      <%end%>
+    </div>
+  </div>
+</div>
+<hr>
+

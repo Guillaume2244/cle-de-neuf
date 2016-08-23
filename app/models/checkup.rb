@@ -4,5 +4,5 @@ class Checkup < ApplicationRecord
   has_many :users, through: :books
 
   validates :book, presence: true
-  validates :checkup_item, presence: true
+  # validates :checkup_item, presence: true
 end
