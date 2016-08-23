@@ -22,3 +22,5 @@ class BookPolicy < ApplicationPolicy
   end
 
 end
+
+

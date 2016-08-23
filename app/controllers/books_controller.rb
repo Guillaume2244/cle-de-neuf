@@ -8,6 +8,7 @@ class BooksController < ApplicationController
   end
 
   def show
+    @checkups = @book.checkups
   end
 
   def new

@@ -1,4 +1,35 @@
-<h1>Books </h1>
+<h1>Carnet d'entretien - Book </h1>
 
-<p><%= @book.registration_plate %></p>
+
 <%= link_to 'Back', books_path %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-3">
+      <p>My car</p>
+      <p><%= @book.registration_plate %></p>
+      <p><%= @book.circulation_date %></p>
+      <p><%= @book.initial_km %></p>
+    </div>
+  </div>
+</div>
+<hr>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-3">
+      <p>Checkups</p>
+      <p><%= link_to 'Add a checkup', new_book_checkup_path(@book) %></p>
+      <%@checkups.each do |checkup|%>
+      <%= checkup.checkup_item_id %>
+      <%= checkup.estimated_date %>
+      <%= checkup.checkup_item.category %>
+      <br>
+      <%end%>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+
