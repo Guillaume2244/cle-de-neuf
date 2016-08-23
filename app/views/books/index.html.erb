@@ -28,14 +28,16 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-3">
-      <p>Books</p>
-      <% @books.each do |book| %>
-      <%= book.registration_plate %>
+    <p>Books</p>
+      <p><% @books.each do |book| %>
+        <%= book.registration_plate %>
+        <td><%= link_to 'Show', book %></td>
+        <td><%= link_to 'Edit', edit_book_path(book) %></td>
+        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </p>
       <%end%>
     </div>
   </div>
 </div>
 <hr>
 
-
-.container>.row>.col-xs-12.col-sm-3
