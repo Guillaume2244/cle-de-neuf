@@ -1,0 +1,41 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-3">
+      <p>Mon profil</p>
+      <%= current_user.email %>
+      <%= current_user.first_name %>
+      <%= current_user.last_name %>
+      <%= current_user.phone_number %>
+    </div>
+  </div>
+</div>
+<hr>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-3">
+      <p>Reminders</p>
+      <%@checkups.each do |checkup|%>
+      <%= checkup.estimated_date %>
+      <%= checkup.checkup_item.category %>
+      <%end%>
+    </div>
+  </div>
+</div>
+
+<hr>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-3">
+      <p>Books</p>
+      <% @books.each do |book| %>
+      <%= book.registration_plate %>
+      <%end%>
+    </div>
+  </div>
+</div>
+<hr>
+
+
+.container>.row>.col-xs-12.col-sm-3
