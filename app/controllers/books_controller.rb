@@ -3,7 +3,7 @@ class BooksController < ApplicationController
   before_action :find_book, only: [:edit, :destroy, :update, :show]
 
   def index
-    @books = Book.all
+    @books = policy_scope(Book)
     @checkups = Checkup.all
   end
 
@@ -12,11 +12,13 @@ class BooksController < ApplicationController
 
   def new
     @book = Book.new
+    authorize @book
   end
 
   def create
     @book = Book.new(book_params)
     @book.user = current_user
+    authorize @book
     @book.save
     redirect_to books_path
   end
@@ -26,11 +28,13 @@ class BooksController < ApplicationController
 
   def update
     @book.update(book_params)
+    authorize @book
     redirect_to books_path
   end
 
   def destroy
     @book.destroy
+    authorize @book
     redirect_to books_path
   end
 
@@ -42,6 +46,7 @@ class BooksController < ApplicationController
 
   def find_book
     @book = Book.find(params[:id])
+    authorize @book
   end
 
 
