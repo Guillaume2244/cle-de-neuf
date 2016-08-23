@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160822161348) do
+ActiveRecord::Schema.define(version: 20160823103648) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,14 +27,13 @@ ActiveRecord::Schema.define(version: 20160822161348) do
   end
 
   create_table "checkup_items", force: :cascade do |t|
-    t.string   "type"
+    t.string   "category"
     t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
   create_table "checkups", force: :cascade do |t|
-    t.integer  "books_id"
     t.date     "effective_date"
     t.integer  "checkup_item_id"
     t.integer  "garage_id"
@@ -43,7 +42,8 @@ ActiveRecord::Schema.define(version: 20160822161348) do
     t.boolean  "done"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.index ["books_id"], name: "index_checkups_on_books_id", using: :btree
+    t.integer  "book_id"
+    t.index ["book_id"], name: "index_checkups_on_book_id", using: :btree
     t.index ["checkup_item_id"], name: "index_checkups_on_checkup_item_id", using: :btree
     t.index ["garage_id"], name: "index_checkups_on_garage_id", using: :btree
   end
@@ -85,8 +85,6 @@ ActiveRecord::Schema.define(version: 20160822161348) do
   end
 
   add_foreign_key "books", "users"
-  add_foreign_key "checkups", "books", column: "books_id"
   add_foreign_key "checkups", "checkup_items"
-  add_foreign_key "checkups", "garages"
   add_foreign_key "garages", "users"
 end
