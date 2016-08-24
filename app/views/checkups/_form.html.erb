@@ -2,8 +2,7 @@
 
   <%= simple_form_for [ @book, @checkup ], url: book_checkups_path do |f| %>
   <%= f.error_notification %>
-
-  <%= f.input :effective_date, required: true %>
+date <%= Date.today%>
   <%= f.input :km_ondate, required: true %>
   <%= f.input :checkup_item, collection: @checkup_items %>
 

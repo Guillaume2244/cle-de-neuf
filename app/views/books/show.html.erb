@@ -6,7 +6,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-3">
-      <p>My car</p>
+      <h2>My car</h2>
       <p><%= @book.registration_plate %></p>
       <p><%= @book.circulation_date %></p>
       <p><%= @book.initial_km %></p>
@@ -18,11 +18,11 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-3">
-      <p>Checkups</p>
+      <h2>Checkups</h2>
       <p><%= link_to 'Add a checkup', new_book_checkup_path(@book) %></p>
       <%@checkups.each do |checkup|%>
       <%= checkup.checkup_item_id %>
-      <%= checkup.estimated_date %>
+      <%= checkup.created_at %>
       <%= checkup.checkup_item.category %>
       <br>
       <%end%>

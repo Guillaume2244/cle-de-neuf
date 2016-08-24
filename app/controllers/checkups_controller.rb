@@ -16,8 +16,9 @@ class CheckupsController < ApplicationController
   end
 
   def create
-    fail
-    @checkup = Checkup.new(checkup_params)
+    @checkup = Checkup.new
+    @checkup.km_ondate = checkup_params[:km_ondate]
+    @checkup.checkup_item_id = checkup_params[:checkup_item].to_i
     @checkup.book = Book.find(params[:book_id])
     authorize @checkup
     @checkup.save
