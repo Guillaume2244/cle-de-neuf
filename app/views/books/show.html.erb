@@ -1,12 +1,16 @@
-<h1>Carnet d'entretien - Book </h1>
+<div class="container">
+  <div class="row">
 
+<h2>Carnet d'entretien du véhicule <%= @book.registration_plate %>  </h2>
+<p><%= link_to 'Retour sur mon dahsboard', books_path %></p>
+    </div>
+    </div>
 
-<%= link_to 'Back', books_path %>
 
 <div class="container">
   <div class="row">
+        <h3>Mon véhicule</h3>
     <div class="col-xs-12 col-sm-3">
-      <h2>My car</h2>
       <p><%= @book.registration_plate %></p>
       <p><%= @book.circulation_date %></p>
       <p><%= @book.initial_km %></p>
@@ -17,8 +21,8 @@
 
 <div class="container">
   <div class="row">
+        <h3>Entretiens de mon véhicule</h3>
     <div class="col-xs-12 col-sm-3">
-      <h2>Checkups</h2>
       <p><%= link_to 'Add a checkup', new_book_checkup_path(@book) %></p>
       <%@checkups.each do |checkup|%>
       <%= checkup.checkup_item_id %>
@@ -29,7 +33,8 @@
     </div>
   </div>
 </div>
-
 <hr>
+
+
 
 

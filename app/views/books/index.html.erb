@@ -1,12 +1,16 @@
+<div class="container text-center">
+  <h2>Mon dashboard </h2>
+</div>
+<hr>
 
 <div class="container">
   <div class="row">
+    <h3>Mon profil - <td><%= link_to 'Edit', edit_user_registration_path %></td></h3>
     <div class="col-xs-12 col-sm-3">
-      <h2>Mon profil</h2>
-      <%= current_user.email %>
-      <%= current_user.first_name %>
-      <%= current_user.last_name %>
-      <%= current_user.phone_number %>
+      <p><%= current_user.email %></p>
+      <p><%= current_user.first_name %></p>
+      <p><%= current_user.last_name %></p>
+      <p><%= current_user.phone_number %></p>
     </div>
   </div>
 </div>
@@ -14,8 +18,8 @@
 
 <div class="container">
   <div class="row">
+    <h3>Mes reminders</h3>
     <div class="col-xs-12 col-sm-3">
-      <h2>Reminders</h2>
       <%@checkups.each do |checkup|%>
       <%= checkup.estimated_date %>
       <%= checkup.checkup_item.category %>
@@ -28,21 +32,23 @@
 <hr>
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-3">
-      <h2>Carnets d'entretien / Books</h2>
-      <p><% @books.each do |book| %>
-        <%= book.registration_plate %>
-        <td><%= link_to 'Show', book %></td>
-        <% if policy(book).edit? %>
-        <td><%= link_to 'Edit', edit_book_path(book) %></td>
-        <% end %>
-        <% if policy(book).destroy? %>
-        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </p>
-      <%end%>
+    <h3>Mes carnets d'entretien -
+      <td><%= link_to "Ajouter un carnet d'entretien", new_book_path %></td></h3>
+      <div class="col-xs-12 col-sm-3">
+        <p><% @books.each do |book| %>
+          <p>Registration : <%= book.registration_plate %></p>
+          <p>Circulation date : <%= book.circulation_date %></p>
+          <td><%= link_to 'Show', book %></td>
+          <% if policy(book).edit? %>
+          <td><%= link_to 'Edit', edit_book_path(book) %></td>
+          <% end %>
+          <% if policy(book).destroy? %>
+          <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+        </p>
+        <%end%>
+      </div>
     </div>
   </div>
 </div>
-<hr>
 

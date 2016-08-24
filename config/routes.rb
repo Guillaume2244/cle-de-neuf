@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  root to: 'pages#home'
+  root to: 'books#index'
   get 'garages/show'
 
   resources :books do
