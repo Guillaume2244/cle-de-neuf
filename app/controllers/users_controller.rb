@@ -10,12 +10,15 @@ class UsersController < ApplicationController
     @user.update(user_params)
   end
 
+  def new
+  end
+
 
 
   private
 
   def user_params
-    params.require(:user).permit(:last_name, :first_name, :phone_number)
+    params.require(:user).permit(:last_name, :first_name, :phone_number, :mecanicien)
   end
 
   def set_user
