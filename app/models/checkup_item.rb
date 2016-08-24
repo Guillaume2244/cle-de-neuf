@@ -3,4 +3,6 @@ class CheckupItem < ApplicationRecord
 
   validates :category, presence: true
   validates :description, presence: true
+  def category
+  end
 end

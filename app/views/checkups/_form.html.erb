@@ -2,9 +2,9 @@
 
   <%= simple_form_for [ @book, @checkup ], url: book_checkups_path do |f| %>
   <%= f.error_notification %>
-date <%= Date.today%>
+<p> Date de l'ajout: <%= Date.today%></p>
+  <%= f.input :checkup_item, collection: CheckupItem.all, label_method: :name %>
   <%= f.input :km_ondate, required: true %>
-  <%= f.input :checkup_item, collection: @checkup_items %>
 
   <div class="form-actions">
     <%= f.button :submit, "Update!" %>
