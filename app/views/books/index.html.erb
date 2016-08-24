@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-3">
-      <p>Mon profil</p>
+      <h2>Mon profil</h2>
       <%= current_user.email %>
       <%= current_user.first_name %>
       <%= current_user.last_name %>
@@ -15,10 +15,11 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-3">
-      <p>Reminders</p>
+      <h2>Reminders</h2>
       <%@checkups.each do |checkup|%>
       <%= checkup.estimated_date %>
       <%= checkup.checkup_item.category %>
+      <br>
       <%end%>
     </div>
   </div>
@@ -28,7 +29,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-3">
-      <p>Books</p>
+      <h2>Carnets d'entretien / Books</h2>
       <p><% @books.each do |book| %>
         <%= book.registration_plate %>
         <td><%= link_to 'Show', book %></td>
