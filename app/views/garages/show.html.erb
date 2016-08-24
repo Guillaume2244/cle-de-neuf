@@ -20,3 +20,26 @@
   </div>
 </div>
 <hr>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-3">
+      <h2>Mes entretiens enffectués</h2>
+      <% @checkups.each do |checkup| %>
+      <%= checkup.checkup_item.category %>
+      <%= checkup.checkup_item.description %>
+      <p>Pour le compte de Mr</p>
+      <%= checkup.book.user.email %>
+      <%= checkup.book.user.first_name %>
+      <%= checkup.book.user.last_name %>
+      <%= checkup.created_at %>
+      <%= link_to "voir le carnet d'entretien", book_path(checkup.book) %>
+      <br>
+      <br>
+      <br>
+      <% end %>
+    </div>
+  </div>
+</div>
+<hr>
