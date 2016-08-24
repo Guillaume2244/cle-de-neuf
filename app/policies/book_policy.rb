@@ -21,6 +21,10 @@ class BookPolicy < ApplicationPolicy
     record.user == user
   end
 
+  def show?
+    record.user == user || record.is_garagiste(user)
+  end
+
 end
 
 
