@@ -25,9 +25,10 @@
     <div class="col-xs-12 col-sm-3">
       <p><%= link_to 'Add a checkup', new_book_checkup_path(@book) %></p>
       <%@checkups.each do |checkup|%>
-      <%= checkup.checkup_item_id %>
-      <%= checkup.created_at %>
-      <%= checkup.checkup_item.category %>
+      <p> Entretien : <%= checkup.checkup_item.name %> -
+      <%= checkup.km_ondate %> km -
+      Effectué le <%= checkup.created_at.strftime("%F") %>
+      <%= checkup.checkup_item.category %> </p>
       <br>
       <%end%>
     </div>
