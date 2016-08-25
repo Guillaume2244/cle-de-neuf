@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  root to: 'books#index'
+  root to: 'welcome#index'
   get 'garages/show'
 
   resources :books do
