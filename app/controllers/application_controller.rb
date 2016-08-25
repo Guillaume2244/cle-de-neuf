@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :phone_number])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :phone_number, :garagiste])
   end
 
   private
@@ -26,6 +26,20 @@ class ApplicationController < ActionController::Base
     devise_controller? || params[:controller] =~ /^(active_)?admin/
   end
 
+  def after_sign_in_path_for(resource)
+    if current_user.garagiste
+    "/garages/show"
+    else
+     books_path
+    end
+  end
+
+  def after_sign_up_path_for(resource)
+    after_sign_in_path_for(resource)
+  end
+
 end
+
+
 
 
