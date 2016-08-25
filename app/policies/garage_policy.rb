@@ -1,12 +1,20 @@
 class GaragePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.where(user: current_user)
+      scope.where(user: user)
     end
   end
 
-  def show?
-    record.user == user
+  def index?
+    true
+  end
+
+  def new?
+    true
+  end
+
+  def create?
+    true
   end
 
 end
