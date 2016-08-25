@@ -29,6 +29,14 @@
       <%= checkup.km_ondate %> km -
       Effectué le <%= checkup.created_at.strftime("%F") %>
       <%= checkup.checkup_item.category %> </p>
+      Effectué par :
+      <% if checkup.garage %>
+        <%= checkup.garage.name %>
+        <img src="http://matchingtool.basic-check.ch/static/imgs/check-mark.svg", height="50", width="50">
+      <% else %>
+        <p>Le Propriétaire du véhicule </p>
+        <img src="https://blog.mailchimp.com/wp-content/uploads/2014/05/Notcheck.png", height="50", width="50">
+      <% end %>
       <br>
       <%end%>
     </div>
