@@ -30,12 +30,16 @@ class ApplicationController < ActionController::Base
     if current_user.garagiste
     "/garages/show"
     else
-     books_path
+     "books#index"
     end
   end
 
   def after_sign_up_path_for(resource)
     after_sign_in_path_for(resource)
+  end
+
+  def after_sign_out_path_for(resource_or_scope)
+    'pages#home'
   end
 
 end
