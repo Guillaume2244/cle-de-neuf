@@ -1,2 +1,11 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="pages-home">
+
+  <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_url ('background_home.jpeg') %>) ;">
+    <div class="banner-content">
+      <h1>Prenez soin de votre voiture</h1>
+      <p>Elle vous le rendra !</p>
+      <%= link_to "Créer mon carnet d'entretien !", new_user_session_path, class: 'btn btn-success' %>
+
+    </div>
+  </div>
+</div>
