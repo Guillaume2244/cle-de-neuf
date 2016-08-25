@@ -25,7 +25,7 @@ class CheckupsController < ApplicationController
     end
     authorize @checkup
     @checkup.save
-    redirect_to book_checkups_path
+    redirect_to book_path(@checkup.book)
   end
 
   def edit
