@@ -27,6 +27,7 @@
       <%= checkup.checkup_item.category %>
       <%= checkup.checkup_item.description %>
       <p>Pour le compte de Mr</p>
+      <%= checkup.checkup_item.name %>
       <%= checkup.book.user.email %>
       <%= checkup.book.user.first_name %>
       <%= checkup.book.user.last_name %>
@@ -35,6 +36,20 @@
       <br>
       <br>
       <br>
+      <% end %>
+    </div>
+  </div>
+</div>
+<hr>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-3">
+      <h2>Ajouter un carnet d'entretien</h2>
+      <%= simple_form_for @garage, url: garages_path do |f| %>
+      <%= f.error_notification %>
+
       <% end %>
     </div>
   </div>
