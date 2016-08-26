@@ -9,8 +9,6 @@ class BooksController < ApplicationController
 
   def show
     @checkups = @book.checkups
-    @futur_km = @book.average_km.to_i + @book.initial_km.to_i
-    @futur_date = Date.today + 365
   end
 
   def new
@@ -62,6 +60,20 @@ class BooksController < ApplicationController
 
   def generate_token
     token = SecureRandom.urlsafe_base64(nil, false).first(5)
+  end
+
+  def create_empty_array
+    z = []
+  end
+
+  def pneus
+     find_book
+     create_empty_array
+     a = @book.template.pneus_date.to_i
+
+    if @book.template.pneus_km.to_i > @book.initial_km.to_i + @book.average_km.to_i * 365 ||
+      @book.circulation_date + a * 365 - @book.circulation_date).to_i < 0
+    end
   end
 
 

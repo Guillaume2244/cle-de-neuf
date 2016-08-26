@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160826114518) do
+ActiveRecord::Schema.define(version: 20160826222905) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,10 @@ ActiveRecord::Schema.define(version: 20160826114518) do
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.string   "token"
+    t.string   "average_km"
+    t.string   "futur_km"
+    t.date     "futur_date"
+    t.integer  "template_id"
     t.index ["user_id"], name: "index_books_on_user_id", using: :btree
   end
 
@@ -66,6 +70,28 @@ ActiveRecord::Schema.define(version: 20160826114518) do
     t.index ["user_id"], name: "index_garages_on_user_id", using: :btree
   end
 
+  create_table "templates", force: :cascade do |t|
+    t.string   "pneus_km"
+    t.string   "pneus_date"
+    t.string   "freinage"
+    t.string   "revision_km"
+    t.string   "revision_date"
+    t.string   "balai"
+    t.string   "echappement"
+    t.string   "amortisseurs_km"
+    t.string   "amortisseurs_date"
+    t.string   "amortisseurs_changement"
+    t.string   "bougies_km"
+    t.string   "climatisation"
+    t.string   "controle_technique_first"
+    t.string   "controle_technique_others"
+    t.string   "vidange_km"
+    t.string   "vidange_date"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "checkup_item_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -89,7 +115,9 @@ ActiveRecord::Schema.define(version: 20160826114518) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "books", "templates"
   add_foreign_key "books", "users"
   add_foreign_key "checkups", "checkup_items"
   add_foreign_key "garages", "users"
+  add_foreign_key "templates", "checkup_items"
 end
