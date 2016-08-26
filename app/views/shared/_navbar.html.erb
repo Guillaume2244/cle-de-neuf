@@ -1,78 +1,59 @@
-<div class="navbar-wagon">
-  <!-- Logo -->
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo.png" %>
-  <% end %>
 
-  <!-- Right Navigation -->
-  <div class="navbar-wagon-right hidden-xs hidden-sm">
-
-    <!-- Search form -->
-    <form action="" class="navbar-wagon-search">
-      <input type="text" class="navbar-wagon-search-input" placeholder="Search something">
-      <button type="submit" class="navbar-wagon-search-btn">
-        <i class="fa fa-search"></i>
-      </button>
-    </form>
-
-    <!-- Different navigation if login or not -->
-    <% if user_signed_in? %>
-
-      <!-- Notification -->
-      <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
-        <div class="badge-container">
-          <i class="fa fa-envelope-o"></i>
-          <div class="badge badge-blue">3</div>
+<div class="wrapper">
+  <!--=== Header Version 3 ===-->
+  <div class="header header-v3">
+    <!-- Navbar -->
+    <div class="navbar navbar-default" role="navigation">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="fa fa-bars"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">
+            <img id="logo-header" src="assets/img/logo1-default.png" alt="Logo">
+          </a>
         </div>
-      <% end %>
 
-      <!-- Profile picture and dropdown -->
-      <div class="navbar-wagon-item">
-        <div class="dropdown">
-          <%= image_tag "http://placehold.it/30x30", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-         <li>
-          <% if current_user.garagiste %>
-            <%= link_to garages_path do %>
-            <i class="fa fa-user"></i> <%= t(".profile", default: "Mon Garage") %>
-            <% end %>
-          <% else %>
-            <%= link_to books_path do %>
-            <i class="fa fa-user"></i> <%= t(".profile", default: "Books") %>
-            <% end %>
-          <% end %>
-          </li>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-responsive-collapse">
+          <ul class="nav navbar-nav">
+            <!-- Home -->
+            <% if user_signed_in? %>
 
-            <li>
-              <%= link_to destroy_user_session_path, method: :delete do %>
+            <li class="dropdown active">
+              <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                MENU
+              </a>
+              <ul class="dropdown-menu">
+               <li>
+                <% if current_user.garagiste %>
+                <%= link_to garages_path do %>
+                <i class="fa fa-user"></i> <%= t(".profile", default: "Mon Garage") %>
+                <% end %>
+                <% else %>
+                <%= link_to books_path do %>
+                <i class="fa fa-user"></i> <%= t(".profile", default: "Books") %>
+                <% end %>
+                <% end %>
+              </li>
+
+              <li>
+                <%= link_to destroy_user_session_path, method: :delete do %>
                 <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
-              <% end %>
-            </li>
-          </ul>
+                <% end %>
+              </li>
+            </ul>
+            <% else %>
+            <!-- Login text link -->
+            <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+            <% end %>
+          </div>
         </div>
-      </div>
-
-    <% else %>
-
-      <!-- Login text link -->
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
-
-    <% end %>
-
-    <!-- Button (call-to-action) -->
-    <%= link_to t(".top_call_to_action", default: "Post stuff"), "#", class: "navbar-wagon-item navbar-wagon-button btn" %>
-  </div>
-
-  <!-- Dropdown list appearing on mobile only -->
-  <div class="navbar-wagon-item hidden-md hidden-lg">
-    <div class="dropdown">
-      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
-      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Some mobile link</a></li>
-        <li><a href="#">Other one</a></li>
-        <li><a href="#">Other one</a></li>
       </ul>
-    </div>
-  </div>
-</div>
+    </li>
+
+  </ul>
+</div><!--/navbar-collapse-->
 
