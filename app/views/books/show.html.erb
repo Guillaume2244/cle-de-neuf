@@ -36,6 +36,8 @@
       <%= checkup.km_ondate %> km -
       Effectué le <%= checkup.created_at.strftime("%F") %>
       <%= checkup.checkup_item.category %> </p>
+      <h4>Voici la facture</h4>
+      <%= cl_image_tag checkup.facture, height: 300, width: 400 %>
       Effectué par :
       <% if checkup.garage %>
         <%= checkup.garage.name %>

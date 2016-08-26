@@ -5,9 +5,11 @@
 <p> Date de l'ajout: <%= Date.today%></p>
   <%= f.input :checkup_item, collection: CheckupItem.all, label_method: :name %>
   <%= f.input :km_ondate, required: true %>
+  <%= f.input :facture %>
+  <%= f.input :facture_cache, as: :hidden %>
 
   <div class="form-actions">
-    <%= f.button :submit, "Update!" %>
+    <%= f.button :submit, "Create!" %>
   </div>
   <% end %>
 
