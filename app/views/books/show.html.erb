@@ -1,8 +1,12 @@
 <div class="container">
   <div class="row">
 
-<h2>Carnet d'entretien du véhicule <%= @book.registration_plate %>  </h2>
-<p><%= link_to 'Retour sur mon dahsboard', books_path %></p>
+<h2>Carnet d'entretien du véhicule <%= @book.registration_plate %></h2>
+<% if current_user.garagiste %>
+  <p><%= link_to 'Retour sur mon dahsboard', garages_path %></p>
+<% else %>
+  <p><%= link_to 'Retour sur mon dahsboard', books_path %></p>
+<% end %>
     </div>
     </div>
 
