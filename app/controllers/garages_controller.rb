@@ -21,12 +21,6 @@ class GaragesController < ApplicationController
     @garages = policy_scope(Garage)
     @garage = @garages.first
     @checkups = @garage.checkups
-    @books = Book.all
-    @books.each do |book|
-      if book.registration_plate == @garage.registration_plate && book.token == @garage.token
-        @find = book
-      end
-    end
   end
 
   def edit
@@ -38,7 +32,13 @@ class GaragesController < ApplicationController
     @garage = Garage.find(params[:id])
     @garage.update(garage_params)
     authorize @garage
-    redirect_to garages_path
+    @books = Book.all
+    @books.each do |book|
+      if book.registration_plate == @garage.registration_plate && book.token == @garage.token
+        @find = book
+      redirect_to book_path(@find)
+      end
+    end
   end
 
   private

@@ -14,8 +14,9 @@
       <p><%= @book.registration_plate %></p>
       <p><%= @book.circulation_date %></p>
       <p><%= @book.initial_km %></p>
+      <% if !current_user.garagiste %>
       <h2>MON TOKEN pour CE véhicule : <%= @book.token %></h2>
-
+      <% end %>
     </div>
   </div>
 </div>

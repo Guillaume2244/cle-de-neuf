@@ -42,13 +42,6 @@
 </div>
 <hr>
 
-<%= link_to 'Ajouter un client', edit_garage_path(@garage) %>
+<%= link_to 'Ajouter un client', edit_garage_path(@garage), class: "btn, btn-warning" %>
 
 
-
-<h3>HELLO EST CE QUE CA WORK ?</h3>
-<% if @find %>
-<%= @find.user.email %>
-<%= @find.user.last_name %>
-<%= link_to "voir le carnet d'entretien", book_path(@find) %>
-<% end %>
