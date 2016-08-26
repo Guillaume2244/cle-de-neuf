@@ -9,6 +9,8 @@ class BooksController < ApplicationController
 
   def show
     @checkups = @book.checkups
+    @futur_km = @book.average_km.to_i + @book.initial_km.to_i
+    @futur_date = Date.today + 365
   end
 
   def new
@@ -21,6 +23,13 @@ class BooksController < ApplicationController
     @book.user = current_user
     authorize @book
     @book.token = generate_token
+
+    date = @book.circulation_date
+    date_today = Date.today
+    number_of_days = (date_today - date).to_i
+    km_today = @book.initial_km.to_i
+    @average_km = km_today / number_of_days.to_f
+    @book.average_km = @average_km
     @book.save
     redirect_to books_path
   end
