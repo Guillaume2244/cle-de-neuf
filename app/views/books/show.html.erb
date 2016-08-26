@@ -28,6 +28,8 @@
 
 <div class="container">
   <div class="row">
+  <h2> MOYENNE DE KM / AN </h2>
+   <%= (@book.average_km.to_i * 365).round  %>
         <h3>Entretiens de mon véhicule</h3>
     <div class="col-xs-12 col-sm-3">
       <p><%= link_to 'Add a checkup', new_book_checkup_path(@book) %></p>
