@@ -52,7 +52,7 @@ class BooksController < ApplicationController
   end
 
   def generate_token
-    token = SecureRandom.urlsafe_base64(nil, false)
+    token = SecureRandom.urlsafe_base64(nil, false).first(5)
   end
 
 
