@@ -41,7 +41,7 @@ class CheckupsController < ApplicationController
   private
 
   def checkup_params
-    params.require(:checkup).permit(:effective_date, :km_ondate, :checkup_item, :facture, :photo_cache)
+    params.require(:checkup).permit(:effective_date, :km_ondate, :checkup_item, :facture, :facture_cache)
   end
 
 end
