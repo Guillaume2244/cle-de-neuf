@@ -1,14 +1,24 @@
+
 //= require jquery
 //= require jquery_ujs
-//= require app
 //= require bootstrap-sprockets
-//= require plugins/btn-effects
-//= require plugins/circles-master
-//= require plugins/datepicker
-//= require plugins/form-sliders
-//= require plugins/masking
-//= require plugins/vector-map
-//= require plugins/validation
+
+//= require jquery-1.10.2.min
+//= require jquery-migrate-1.2.1.min
+//= require back-to-top
+//= require owl-carousel
+//= require jquery.themepunch.plugins.min
+//= require jquery.themepunch.revolution.min
+//= require app
+//= require index
+//= require owl-carousel
+//= require respond
+//= require waypoints
+//= require jquery.counterup.min
+//= require jquery-ui.min
+//= require jquery.mousewheel
+//= require perfect-scrollbar
+//= require datepicker
 
 
-
+//= require_tree .

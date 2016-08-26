@@ -14,87 +14,26 @@
 @import "pages/index";
 @import "vendor/index";
 
-// Vendor
-@import "app";
-@import "custom";
-@import "ie8";
-@import "plugins/animate";
-@import "plugins/box-shadows";
-@import "plugins";
+// Vendor Home page
+
+@import "line-icons";
+@import "owl.carousel";
+@import "red";
+@import "settings";
 @import "style";
-@import "pages/blog_magazine";
-@import "pages/blog_masonry_3col";
-@import "pages/blog";
-@import "pages/feature_timeline1";
-@import "pages/feature_timeline2";
-@import "pages/page_404_error";
-@import "pages/page_404_error1";
-@import "pages/page_404_error2";
-@import "pages/page_404_error3";
-@import "pages/page_about";
-@import "pages/page_clients";
-@import "pages/page_coming_soon";
-@import "pages/page_contact";
-@import "pages/page_error3_404";
-@import "pages/page_error4_404";
-@import "pages/page_faq1";
-@import "pages/page_invoice";
-@import "pages/page_job_inner";
-@import "pages/page_job_inner1";
-@import "pages/page_job_inner2";
-@import "pages/page_job";
-@import "pages/page_log_reg_v1";
-@import "pages/page_log_reg_v2";
-@import "pages/page_one";
-@import "pages/page_pricing";
-@import "pages/page_promo";
-@import "pages/page_search_inner_tables";
-@import "pages/page_search_inner";
-@import "pages/page_search";
-@import "pages/portfolio-v1";
-@import "pages/portfolio-v2";
-@import "pages/profile";
-@import "plugins/brand-buttons/brand-buttons-inversed";
-@import "plugins/brand-buttons/brand-buttons";
-@import "custom-hover-effects";
-@import "hover-min";
-@import "hover";
-@import "themes/aqua";
-@import "themes/blue";
-@import "themes/brown";
-@import "themes/dark-blue";
-@import "themes/dark";
-@import "themes/default";
-@import "themes/light-green";
-@import "themes/light";
-@import "themes/orange";
-@import "themes/purple";
-@import "themes/red";
+@import "app";
+@import "animate";	
+@import "box-shadows";
+@import "ie8";
+@import "extralayers";
+@import "navstylechange";
+@import "noneed";
+@import "style";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//vendor Page Profile
+@import "custom-sky-forms";
+@import "perfect-scrollbar";
+@import "custom";
+@import "default";
+@import "sky-forms";
 
