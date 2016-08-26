@@ -1,0 +1,18 @@
+<div class="col-xs-12 col-md-4 col-md-offset-4">
+
+  <%= simple_form_for @garage, url: garages_path do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :name, required: true %>
+  <%= f.input :siret, required: true %>
+  <%= f.input :address, required: true %>
+  <%= f.input :city, required: true %>
+  <%= f.input :zip_code, required: true %>
+   <%= f.input :phone_number, required: true %>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Update!" %>
+  </div>
+  <% end %>
+
+</div>

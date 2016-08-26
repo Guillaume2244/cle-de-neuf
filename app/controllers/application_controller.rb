@@ -27,15 +27,13 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    if current_user.garagiste
-    "/garages/show"
+     if current_user.garagiste && !current_user.garages.first
+      new_garage_path
+    elsif current_user.garagiste
+      garages_path
     else
-     books_path
+       books_path
     end
-  end
-
-  def after_sign_up_path_for(resource)
-    after_sign_in_path_for(resource)
   end
 
 end

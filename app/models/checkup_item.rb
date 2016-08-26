@@ -1,7 +1,7 @@
 class CheckupItem < ApplicationRecord
   has_many :checkups
 
-  validates :category, presence: true
+  validates :name, presence: true
   validates :description, presence: true
   def category
   end
