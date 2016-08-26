@@ -6,3 +6,4 @@ class CheckupItem < ApplicationRecord
   def category
   end
 end
+

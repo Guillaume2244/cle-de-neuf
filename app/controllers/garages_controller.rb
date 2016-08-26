@@ -16,15 +16,35 @@ class GaragesController < ApplicationController
    end
   end
 
+
   def index
     @garages = policy_scope(Garage)
     @garage = @garages.first
     @checkups = @garage.checkups
   end
 
+  def edit
+    @garage = Garage.find(params[:id])
+    authorize @garage
+  end
+
+  def update
+    @garage = Garage.find(params[:id])
+    @garage.update(garage_params)
+    authorize @garage
+    @books = Book.all
+    @books.each do |book|
+      if book.registration_plate == @garage.registration_plate && book.token == @garage.token
+        @find = book
+      redirect_to book_path(@find)
+      end
+    end
+  end
+
   private
 
   def garage_params
-    params.require(:garage).permit(:name, :siret, :address, :city, :zip_code, :phone_number)
+    params.require(:garage).permit(:name, :siret, :address, :city, :zip_code, :phone_number, :token, :registration_plate)
   end
+
 end

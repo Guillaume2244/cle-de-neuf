@@ -1,8 +1,12 @@
 <div class="container">
   <div class="row">
 
-<h2>Carnet d'entretien du véhicule <%= @book.registration_plate %>  </h2>
-<p><%= link_to 'Retour sur mon dahsboard', books_path %></p>
+<h2>Carnet d'entretien du véhicule <%= @book.registration_plate %></h2>
+<% if current_user.garagiste %>
+  <p><%= link_to 'Retour sur mon dahsboard', garages_path %></p>
+<% else %>
+  <p><%= link_to 'Retour sur mon dahsboard', books_path %></p>
+<% end %>
     </div>
     </div>
 
@@ -14,6 +18,9 @@
       <p><%= @book.registration_plate %></p>
       <p><%= @book.circulation_date %></p>
       <p><%= @book.initial_km %></p>
+      <% if !current_user.garagiste %>
+      <h2>MON TOKEN pour CE véhicule : <%= @book.token %></h2>
+      <% end %>
     </div>
   </div>
 </div>
@@ -25,9 +32,23 @@
     <div class="col-xs-12 col-sm-3">
       <p><%= link_to 'Add a checkup', new_book_checkup_path(@book) %></p>
       <%@checkups.each do |checkup|%>
-      <%= checkup.checkup_item_id %>
-      <%= checkup.created_at %>
-      <%= checkup.checkup_item.category %>
+      <p> Entretien : <%= checkup.checkup_item.name %> -
+      <%= checkup.km_ondate %> km -
+      Effectué le <%= checkup.created_at.strftime("%F") %>
+      <%= checkup.checkup_item.category %> </p>
+    <a target="_blank" href="<%= cloudinary_url(checkup.facture) %>" >
+      <p>Lien vers la facture</p>
+    </a>
+
+      Effectué par :
+      <% if checkup.garage %>
+        <%= checkup.garage.name %>
+        <img src="http://matchingtool.basic-check.ch/static/imgs/check-mark.svg", height="50", width="50">
+      <% else %>
+        <p>Le Propriétaire du véhicule </p>
+        <img src="https://blog.mailchimp.com/wp-content/uploads/2014/05/Notcheck.png", height="50", width="50">
+        <hr>
+      <% end %>
       <br>
       <%end%>
     </div>

@@ -20,6 +20,7 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
     @book.user = current_user
     authorize @book
+    @book.token = generate_token
     @book.save
     redirect_to books_path
   end
@@ -48,6 +49,10 @@ class BooksController < ApplicationController
   def find_book
     @book = Book.find(params[:id])
     authorize @book
+  end
+
+  def generate_token
+    token = SecureRandom.urlsafe_base64(nil, false).first(5)
   end
 
 

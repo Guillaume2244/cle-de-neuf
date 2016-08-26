@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-    resources :garages, only: [:new, :create, :index]
+    resources :garages
 
   resources :books do
     resources :checkups

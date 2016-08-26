@@ -20,9 +20,13 @@ class CheckupsController < ApplicationController
     @checkup.km_ondate = checkup_params[:km_ondate]
     @checkup.checkup_item_id = checkup_params[:checkup_item].to_i
     @checkup.book = Book.find(params[:book_id])
+    @checkup.facture = checkup_params[:facture]
+     if current_user.garagiste
+        @checkup.garage = current_user.garages.first
+    end
     authorize @checkup
     @checkup.save
-    redirect_to book_checkups_path
+    redirect_to book_path(@checkup.book)
   end
 
   def edit
@@ -37,7 +41,7 @@ class CheckupsController < ApplicationController
   private
 
   def checkup_params
-    params.require(:checkup).permit(:effective_date, :km_ondate, :checkup_item)
+    params.require(:checkup).permit(:effective_date, :km_ondate, :checkup_item, :facture, :facture_cache)
   end
 
 end

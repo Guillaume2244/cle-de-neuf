@@ -27,6 +27,7 @@
       <%= checkup.checkup_item.category %>
       <%= checkup.checkup_item.description %>
       <p>Pour le compte de Mr</p>
+      <%= checkup.checkup_item.name %>
       <%= checkup.book.user.email %>
       <%= checkup.book.user.first_name %>
       <%= checkup.book.user.last_name %>
@@ -40,3 +41,7 @@
   </div>
 </div>
 <hr>
+
+<%= link_to 'Ajouter un client', edit_garage_path(@garage), class: "btn, btn-warning" %>
+
+

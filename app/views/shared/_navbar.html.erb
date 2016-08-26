@@ -32,9 +32,15 @@
           <%= image_tag "http://placehold.it/30x30", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
          <li>
+          <% if current_user.garagiste %>
+            <%= link_to garages_path do %>
+            <i class="fa fa-user"></i> <%= t(".profile", default: "Mon Garage") %>
+            <% end %>
+          <% else %>
             <%= link_to books_path do %>
             <i class="fa fa-user"></i> <%= t(".profile", default: "Books") %>
             <% end %>
+          <% end %>
           </li>
 
             <li>
