@@ -4,8 +4,8 @@ Checkup.destroy_all
 CheckupItem.destroy_all
 User.destroy_all
 
-toto = User.create!(email:"toto@gmail.com", password: '123456')
-adrien = User.create!(email:"adrien@gmail.com", password: '123456')
+toto = User.create!(email:"toto@gmail.com", password: '123456', garagiste: true)
+adrien = User.create!(email:"adrien@gmail.com", password: '123456', garagiste: true)
 jean = User.create!(email:"jean@gmail.com", password: '123456')
 
 g1 = Garage.create!(name:"Le beau garage", user:toto, siret:"142567")
