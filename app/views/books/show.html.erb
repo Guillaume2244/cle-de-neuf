@@ -36,8 +36,10 @@
       <%= checkup.km_ondate %> km -
       Effectué le <%= checkup.created_at.strftime("%F") %>
       <%= checkup.checkup_item.category %> </p>
-      <h4>Voici la facture</h4>
-      <%= cl_image_tag checkup.facture, height: 300, width: 400 %>
+    <a target="_blank" href="<%= cloudinary_url(checkup.facture) %>" >
+      <p>Lien vers la facture</p>
+    </a>
+
       Effectué par :
       <% if checkup.garage %>
         <%= checkup.garage.name %>
@@ -45,6 +47,7 @@
       <% else %>
         <p>Le Propriétaire du véhicule </p>
         <img src="https://blog.mailchimp.com/wp-content/uploads/2014/05/Notcheck.png", height="50", width="50">
+        <hr>
       <% end %>
       <br>
       <%end%>
