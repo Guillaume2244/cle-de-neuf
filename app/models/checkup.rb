@@ -1,4 +1,5 @@
 class Checkup < ApplicationRecord
+  mount_uploader :facture, PhotoUploader
   belongs_to :book
   belongs_to :checkup_item, optional: true
   belongs_to :garage, optional: true
