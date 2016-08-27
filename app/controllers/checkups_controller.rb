@@ -16,12 +16,18 @@ class CheckupsController < ApplicationController
   end
 
   def create
+    @book = Book.find(params[:book_id])
     @checkup = Checkup.new
     @checkup.km_ondate = checkup_params[:km_ondate]
     @checkup.checkup_item_id = checkup_params[:checkup_item].to_i
-    @checkup.book = Book.find(params[:book_id])
+    @checkup.book = @book
     @checkup.facture = checkup_params[:facture]
-     if current_user.garagiste
+    @checkup.done = true
+    Checkup.where(checkup_item: checkup_params[:checkup_item].to_i, book: @book).each do |h|
+      h.done = true
+      h.save
+    end
+    if current_user.garagiste
         @checkup.garage = current_user.garages.first
     end
     authorize @checkup

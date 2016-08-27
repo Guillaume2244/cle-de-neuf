@@ -28,8 +28,19 @@ class BooksController < ApplicationController
     km_today = @book.initial_km.to_i
     @average_km = km_today / number_of_days.to_f
     @book.average_km = @average_km
+    @book.template = Template.first
     @book.save
-    redirect_to books_path
+    pneus
+    freinage
+    revision
+    balai
+    echappement
+    amortisseurs
+    bougies
+    climatisation
+    controle_technique_f
+    vidange
+    redirect_to book_path(@book)
   end
 
   def edit
@@ -49,6 +60,7 @@ class BooksController < ApplicationController
 
   private
 
+
   def book_params
     params.require(:book).permit(:registration_plate, :initial_km, :initial_entry_into_service, :circulation_date)
   end
@@ -62,19 +74,105 @@ class BooksController < ApplicationController
     token = SecureRandom.urlsafe_base64(nil, false).first(5)
   end
 
-  def create_empty_array
-    z = []
+  def new_checkup_not_done
+    @c = Checkup.new
+    @c.book = @book
+    @c.done = false
   end
 
   def pneus
-     find_book
-     create_empty_array
      a = @book.template.pneus_date.to_i
 
-    if @book.template.pneus_km.to_i > @book.initial_km.to_i + @book.average_km.to_i * 365 ||
-      @book.circulation_date + a * 365 - @book.circulation_date).to_i < 0
+    if @book.initial_km.to_i + @book.average_km.to_i * 365 > @book.template.pneus_km.to_i ||
+      (@book.circulation_date + a * 365 - Date.today).to_i < 0
+      new_checkup_not_done
+      @c.checkup_item = CheckupItem.where(name:"Pneus").first
+      @c.save
     end
   end
 
+  def freinage
+     b = @book.template.freinage.to_i
+
+     if (@book.circulation_date + b * 365 - Date.today).to_i < 0
+      new_checkup_not_done
+      @c.checkup_item = CheckupItem.where(name:"Freinage").first
+      @c.save
+    end
+  end
+
+  def revision
+    c = @book.template.revision_date.to_i
+    if @book.initial_km.to_i + @book.average_km.to_i * 365 > @book.template.revision_km.to_i ||
+      (@book.circulation_date + c * 365 - Date.today).to_i < 0
+      new_checkup_not_done
+      @c.checkup_item = CheckupItem.where(name:"Revision").first
+      @c.save
+    end
+  end
+
+  def balai
+     d = @book.template.balai.to_i
+    if (@book.circulation_date + d * 365 - Date.today).to_i < 0
+      new_checkup_not_done
+      @c.checkup_item = CheckupItem.where(name:"Balai essui glace").first
+      @c.save
+    end
+  end
+
+  def echappement
+     e = @book.template.echappement.to_i
+    if (@book.circulation_date + e * 365 - Date.today).to_i < 0
+      new_checkup_not_done
+      @c.checkup_item = CheckupItem.where(name:"Echappement").first
+      @c.save
+    end
+  end
+
+  def amortisseurs
+    f = @book.template.amortisseurs_date.to_i
+   if @book.initial_km.to_i + @book.average_km.to_i * 365 > @book.template.amortisseurs_km.to_i ||
+      (@book.circulation_date + f * 365 - Date.today).to_i < 0
+      new_checkup_not_done
+      @c.checkup_item = CheckupItem.where(name:"Amortisseurs").first
+      @c.save
+    end
+  end
+
+  def bougies
+    if @book.initial_km.to_i + @book.average_km.to_i * 365 > @book.template.bougies_km.to_i
+      new_checkup_not_done
+      @c.checkup_item = CheckupItem.where(name:"Bougies").first
+      @c.save
+    end
+  end
+
+  def climatisation
+     g = @book.template.climatisation.to_i
+    if (@book.circulation_date + g * 365 - Date.today).to_i < 0
+      new_checkup_not_done
+      @c.checkup_item = CheckupItem.where(name:"Climatisation").first
+      @c.save
+    end
+  end
+
+  def controle_technique_f
+     h = @book.template.controle_technique_first.to_i
+    if (@book.circulation_date + h * 365 - Date.today).to_i < 0
+      new_checkup_not_done
+      @c.checkup_item = CheckupItem.where(name:"Controle Technique").first
+      @c.save
+    end
+  end
+
+  def vidange
+    j = @book.template.vidange_date.to_i
+    if @book.initial_km.to_i + @book.average_km.to_i * 365 > @book.template.vidange_km.to_i ||
+      (@book.circulation_date + j * 365 - Date.today).to_i < 0
+      new_checkup_not_done
+      @c.checkup_item = CheckupItem.where(name:"Vidange").first
+      @c.save
+    end
+  end
 
 end

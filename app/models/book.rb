@@ -11,7 +11,7 @@ class Book < ApplicationRecord
 
   def is_garagiste(user)
     self.checkups.each do |checkup|
-      if checkup.garage.user == user
+      if checkup.garage == user.garages.first
         return true
       end
     end
