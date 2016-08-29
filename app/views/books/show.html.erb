@@ -33,7 +33,7 @@
         <h3>Entretiens de mon véhicule</h3>
     <div class="col-xs-12 col-sm-3">
       <p><%= link_to 'Add a checkup', new_book_checkup_path(@book) %></p>
-      <%@checkups.each do |checkup|%>
+      <%@checkups.where.not(done: false, km_ondate: nil).each do |checkup|%>
       <p> Entretien : <%= checkup.checkup_item.name %> -
       <%= checkup.km_ondate %> km -
       Effectué le <%= checkup.created_at.strftime("%F") %>
@@ -58,6 +58,12 @@
 </div>
 <hr>
 
+<h1> MES ENTRETIENS A EFFECTUER </h1>
+<% @book.checkups.where(done: false).each do |checkup| %>
+      <% if checkup.checkup_item %>
+       <p><%= checkup.checkup_item.name %> : <%= checkup.checkup_item.description%> </p>
+    <% end %>
+<% end %>
 
 
 
