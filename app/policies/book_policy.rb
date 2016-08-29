@@ -10,7 +10,11 @@ class BookPolicy < ApplicationPolicy
   end
 
   def create?
-    true
+    if user.garagiste
+      false
+    else
+      true
+    end
   end
 
   def update?
