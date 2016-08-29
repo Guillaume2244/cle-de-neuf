@@ -1,8 +1,10 @@
+Template.destroy_all
 Garage.destroy_all
 Book.destroy_all
-Checkup.destroy_all
 CheckupItem.destroy_all
+Checkup.destroy_all
 User.destroy_all
+
 
 toto = User.create!(email:"toto@gmail.com", password: '123456', garagiste: true)
 adrien = User.create!(email:"adrien@gmail.com", password: '123456', garagiste: true)
@@ -15,6 +17,7 @@ t1 = Template.create!(pneus_km:"40000", pneus_date:"5", freinage:"2", revision_k
   balai:"1", echappement:"2",amortisseurs_km:"20000", amortisseurs_date:"1",
   bougies_km:"60000", climatisation:"1", controle_technique_first:"4", controle_technique_others:"2",
   vidange_km:"10000", vidange_date:"1")
+
 
 b1 = Book.create!(registration_plate:"BL-710-MC", user:jean, initial_km: '20000', template:t1)
 b2 = Book.create!(registration_plate:"GH-789-JK", user:jean, initial_km: '1000', template:t1)
@@ -62,6 +65,9 @@ k2 = CheckupItem.create!(name:"Controle Technique", description:"Controle Techni
 
 l1 = CheckupItem.create!(name:"Vidange", description:"Vidange 1ere", numero: 1)
 l2 = CheckupItem.create!(name:"Vidange", description:"Vidange 2eme", numero: 2)
+
+
+
 
 
 
