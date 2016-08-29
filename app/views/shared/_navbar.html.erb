@@ -36,7 +36,10 @@
                 <% end %>
                 <% else %>
                 <%= link_to books_path do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Books") %>
+                <i class="fa fa-bar-chart"></i> <%= t(".profile", default: "Mon dashboard") %>
+                <% end %>
+                <%= link_to edit_user_registration_path do %>
+                <i class="fa fa-user"></i> <%= t(".profile", default: "Mon profil") %>
                 <% end %>
                 <% end %>
               </li>
