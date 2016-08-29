@@ -43,14 +43,6 @@ class BooksController < ApplicationController
     redirect_to book_path(@book)
   end
 
-  def edit
-  end
-
-  def update
-    @book.update(book_params)
-    authorize @book
-    redirect_to books_path
-  end
 
   def destroy
     @book.destroy
@@ -61,9 +53,7 @@ class BooksController < ApplicationController
   private
 
 
-  def book_params
-    params.require(:book).permit(:registration_plate, :initial_km, :initial_entry_into_service, :circulation_date)
-  end
+
 
   def find_book
     @book = Book.find(params[:id])
