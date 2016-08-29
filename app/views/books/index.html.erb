@@ -32,6 +32,7 @@
             </div>
           </div>
 
+
           <!-- <div class="col-sm-6">
             <div class="service-block-v3 servive-block-blue">
               <i class="icon-screen-desktop"></i>
@@ -93,8 +94,12 @@
                   <td><%= book.circulation_date %></td>
                   <td><%= book.initial_km %>km.</td>
                   <td>
-                    <%= book.checkups.last.checkup_item.name %> le
-                    <%= book.checkups.last.checkup_item.created_at.strftime("%d/%m/%y") %>
+                    <% if book.checkups.last %>
+                      <% if book.checkups.last.checkup_item %>
+                        <%= book.checkups.last.checkup_item.name %> le
+                        <%= book.checkups.last.checkup_item.created_at.strftime("%d/%m/%y") %>
+                      <% end %>
+                    <% end %>
                   </td>
                   <td><button <%= link_to "Carnet", book_path(book) ,:class=>"btn-u btn-u-9 btn-block btn-u-xs" %> <i class="fa fa-car margin-right-5"></i> </button></td>
 

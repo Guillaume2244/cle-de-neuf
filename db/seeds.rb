@@ -67,8 +67,8 @@ l1 = CheckupItem.create!(name:"Vidange", description:"Vidange 1ere", numero: 1)
 l2 = CheckupItem.create!(name:"Vidange", description:"Vidange 2eme", numero: 2)
 
 
+ccc = Checkup.create!(book:b1, checkup_item:c1, km_ondate:"30000")
 
-
-
+ccd = Checkup.create!(book:b2, checkup_item:c2, km_ondate:"30000")
 
 
