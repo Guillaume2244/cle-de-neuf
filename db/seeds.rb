@@ -11,10 +11,15 @@ jean = User.create!(email:"jean@gmail.com", password: '123456')
 g1 = Garage.create!(name:"Le beau garage", user:toto, siret:"142567")
 g2 = Garage.create!(name:"Le moche garage", user:adrien, siret:"14256799999")
 
-b1 = Book.create!(registration_plate:"BL-710-MC", user:jean, initial_km: '20000')
-b2 = Book.create!(registration_plate:"GH-789-JK", user:jean, initial_km: '1000')
-b3 = Book.create!(registration_plate:"VV-905-VS", user:jean, initial_km: '2300')
-b4 = Book.create!(registration_plate:"PM-7234-JP", user:jean, initial_km: '44000')
+t1 = Template.create!(pneus_km:"40000", pneus_date:"5", freinage:"2", revision_km:"15000", revision_date:"1",
+  balai:"1", echappement:"2",amortisseurs_km:"20000", amortisseurs_date:"1",
+  bougies_km:"60000", climatisation:"1", controle_technique_first:"4", controle_technique_others:"2",
+  vidange_km:"10000", vidange_date:"1")
+
+b1 = Book.create!(registration_plate:"BL-710-MC", user:jean, initial_km: '20000', template:t1)
+b2 = Book.create!(registration_plate:"GH-789-JK", user:jean, initial_km: '1000', template:t1)
+b3 = Book.create!(registration_plate:"VV-905-VS", user:jean, initial_km: '2300', template:t1)
+b4 = Book.create!(registration_plate:"PM-7234-JP", user:jean, initial_km: '44000', template:t1)
 
 c1 = CheckupItem.create!(name:"Pneus", description:"40 000km ou > 5 ans", numero: 1)
 c2 = CheckupItem.create!(name:"Pneus", description:"80 000km ou > 10 ans", numero: 2)
