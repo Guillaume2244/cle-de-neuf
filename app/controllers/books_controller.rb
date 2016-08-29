@@ -63,7 +63,7 @@ class BooksController < ApplicationController
   end
 
   def book_params
-    params.require(:book).permit(:registration_plate, :initial_km, :circulation_date)
+    params.require(:book).permit(:registration_plate, :initial_km, :circulation_date, :name)
   end
 
   def new_checkup_not_done

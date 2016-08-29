@@ -7,6 +7,7 @@
   <%= f.input :registration_plate, required: true %>
   <%= f.input :initial_km, required: true %>
   <%= f.input :circulation_date, as: :date, start_year: Date.today.year - 25, end_year: Date.today.year - 0 %>
+  <%= f.input :name, required: true%>
 
   <div class="form-actions">
     <%= f.button :submit, "Update!" %>

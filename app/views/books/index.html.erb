@@ -87,9 +87,7 @@
               <tbody>
                 <% @books.each do |book| %>
                 <tr>
-                  <td>
-                    <a href="#">Titine</a>
-                  </td>
+                  <td><%= book.name %></td>
                   <td class="td-width"><%= book.registration_plate %></td>
                   <td><%= book.circulation_date %></td>
                   <td><%= book.initial_km %>km.</td>
