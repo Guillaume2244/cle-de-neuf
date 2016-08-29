@@ -1,3 +1,13 @@
+<div class="banner" style="background-image: url('https://hd.unsplash.com/photo-1422976280096-9126a41f9e2a');">
+
+  <div class="banner-content">
+    <h1> Pourquoi bien entretenir mon véhicule ?</h1>
+    <p>Pour mon portefeuille, pour l'environnement, et pour mes balades bucoliques...</p>
+    <a> <%= link_to "Ca m'intéresse !", user_session_path, class: "btn btn-neuf" %></a>
+
+  </div>
+</div>
+
 <!--=== Content Part ===-->
 <div class="container content">
   <div class="clearfix margin-bottom-30"></div>
@@ -14,23 +24,23 @@
     <div class="col-md-4 col-sm-6">
       <div class="servive-block servive-block-default">
         <h2 class="heading-md">Je crée mes carnets d'entretien</h2>
-        <img class="img-responsive margin-bottom-20" src="assets/images/creation.png" alt="">
+        <%= image_tag "creation.png", {class: "card"}%>
 
-        <p>Donec id elit non mi porta gravida at eget metus id elit mi egetine. Fusce dapibus</p>
+      <p>Donec id elit non mi porta gravida at eget metus id elit mi egetine. Fusce dapibus</p>
       </div>
     </div>
     <div class="col-md-4 col-sm-6">
       <div class="servive-block servive-block-default">
         <h2 class="heading-md">J'entretiens mieux mon véhicule </h2>
-        <i class="icon-custom rounded-x icon-bg-dark icon-line icon-rocket"></i>
+        <%= image_tag "jentretien.png", {class: "card"}%>
         <p>Donec id elit non mi porta gravida at eget metus id elit mi egetine. Fusce dapibus</p>
       </div>
     </div>
     <div class="col-md-4 col-sm-6">
       <div class="servive-block servive-block-default">
         <h2 class="heading-md">Je revends et j'achète plus sereinement</h2>
-        <i class="icon-custom rounded-x icon-bg-dark icon-line icon-support"></i>
-        <p>Donec id elit non mi porta gravida at eget metus id elit mi egetine usce dapibus elit nondapibus</p>
+        <%= image_tag "revend.png", {class: "card"}%>
+        <p>Donec id elit non mi porta gravida at eget metus id elit mi egetine usce dapibus</p>
       </div>
     </div>
   </div>
@@ -38,7 +48,7 @@
 
   <div class="clearfix margin-bottom-30"></div>
   <div class="shadow-wrapper">
-    <div class="tag-box tag-box-v1 box-shadow shadow-effect-2">
+    <div class="tag-box tag-box-v9 box-shadow shadow-effect-2">
       <h2>Un atout pour les garages</h2>
 
     </div>
@@ -49,23 +59,23 @@
   <div class="row margin-bottom-40">
     <div class="col-md-4 col-sm-6">
       <div class="servive-block servive-block-default">
-        <h2 class="heading-md">J'accède aux informations de mes clients'</h2>
-        <i class="icon-custom rounded-x icon-bg-dark fa fa-lightbulb-o"></i>
+        <h2 class="heading-md">J'accède aux informations de mes clients</h2>
+        <%= image_tag "gjaccede.png", {class: "card"}%>
         <p>Donec id elit non mi porta gravida at eget metus id elit mi egetine. Fusce dapibus</p>
       </div>
     </div>
     <div class="col-md-4 col-sm-6">
       <div class="servive-block servive-block-default">
         <h2 class="heading-md"> J'entretiens mieux son véhicule </h2>
-        <i class="icon-custom rounded-x icon-bg-dark icon-line icon-rocket"></i>
+        <%= image_tag "gjentretien3.png", {class: "card"}%>
         <p>Donec id elit non mi porta gravida at eget metus id elit mi egetine. Fusce dapibus</p>
       </div>
     </div>
     <div class="col-md-4 col-sm-6">
       <div class="servive-block servive-block-default">
-        <h2 class="heading-md">Mes clients sont satisfaits !</h2>
-        <i class="icon-custom rounded-x icon-bg-dark icon-line icon-support"></i>
-        <p>Donec id elit non mi porta gravida at eget metus id elit mi egetine usce dapibus elit nondapibus</p>
+        <h2 class="heading-md">Mes clients sont (hypers) satisfaits !</h2>
+        <%= image_tag "gsatisfait.png", {class: "card"}%>
+        <p>Donec id elit non mi porta gravida at eget metus id elit mi egetine usce dapibus</p>
       </div>
     </div>
   </div>
@@ -78,7 +88,7 @@
       <div class="headline"><h2>On parle de nous !</h2></div>
       <div class="row">
         <div class="col-sm-4">
-          <img class="img-responsive margin-bottom-20" src="assets/img/new/img15.jpg" alt="" />
+        <%= image_tag "garagiste.jpg", {class: "card"}%>
         </div>
         <div class="col-sm-8">
           <p>Unify is an incredibly beautiful responsive Bootstrap Template for corporate and creative professionals. It works on all major web browsers, tablets and phone.</p>
@@ -101,19 +111,19 @@
     <div class="col-md-4 posts">
       <div class="headline"><h3>La presse aussi</h3></div>
       <dl class="dl-horizontal">
-        <dt><a href="#"><img alt="" src="assets/images/feu-vert.jpg"></a></dt>
+        <dt><%= image_tag "feu-vert.jpg", {class: "card"}%></a></dt>
         <dd>
           <p><a href="#">Anim moon officia Unify is an incredibly beautiful responsive Bootstrap Template</a></p>
         </dd>
       </dl>
       <dl class="dl-horizontal">
-        <dt><a href="#"><img alt="" src="assets/img/sliders/elastislide/10.jpg"></a></dt>
+        <dt><%= image_tag "norauto.jpg", {class: "card"}%></a></dt>
         <dd>
           <p><a href="#">Lorem sequat ipsum dolor lorem sit amet, consectetur adipiscing dolor elit.</a></p>
         </dd>
       </dl>
       <dl class="dl-horizontal">
-        <dt><a href="#"><img alt="" src="assets/img/sliders/elastislide/11.jpg"></a></dt>
+        <dt><%= image_tag "autovision.jpg", {class: "card"}%></a></dt>
         <dd>
           <p><a href="#">It works on all major web browsers, tablets and lorem sequat ipsum dolor.</a></p>
         </dd>
@@ -124,40 +134,58 @@
 
   <!-- Our Clients -->
   <div class="owl-carousel-style-v2">
-    <div class="headline"><h2>Our Clients</h2></div>
+    <div class="headline"><h2>Nos Clients</h2></div>
     <div class="owl-slider-v3">
       <div class="item">
-        <img class="img-responsive" src="assets/img/clients/cisco.png" alt="">
+     <%= image_tag "alfaromeo.gif", {class: "img-responsive"}%>
       </div>
       <div class="item">
-        <img class="img-responsive" src="assets/img/clients/cocacola.png" alt="">
+     <%= image_tag "audi.gif", {class: "img-responsive"}%>
       </div>
       <div class="item">
-        <img class="img-responsive" src="assets/img/clients/vadafone.png" alt="">
+     <%= image_tag "chevrolet.gif", {class: "img-responsive"}%>
       </div>
       <div class="item">
-        <img class="img-responsive" src="assets/img/clients/walmart.png" alt="">
+     <%= image_tag "chrysler.gif", {class: "img-responsive"}%>
       </div>
       <div class="item">
-        <img class="img-responsive" src="assets/img/clients/shell.png" alt="">
+     <%= image_tag "citroen.gif", {class: "img-responsive"}%>
       </div>
       <div class="item">
-        <img class="img-responsive" src="assets/img/clients/hp.png" alt="">
+     <%= image_tag "dacia.gif", {class: "img-responsive"}%>
       </div>
       <div class="item">
-        <img class="img-responsive" src="assets/img/clients/spinworkx.png" alt="">
+     <%= image_tag "fiat.gif", {class: "img-responsive"}%>
       </div>
       <div class="item">
-        <img class="img-responsive" src="assets/img/clients/motogp.png" alt="">
+     <%= image_tag "hyundai.gif", {class: "img-responsive"}%>
       </div>
       <div class="item">
-        <img class="img-responsive" src="assets/img/clients/everyday.png" alt="">
+     <%= image_tag "jaguar.gif", {class: "img-responsive"}%>
       </div>
       <div class="item">
-        <img class="img-responsive" src="assets/img/clients/aztec.png" alt="">
+     <%= image_tag "landrover.gif", {class: "img-responsive"}%>
       </div>
       <div class="item">
-        <img class="img-responsive" src="assets/img/clients/natural.png" alt="">
+     <%= image_tag "mercedes.gif", {class: "img-responsive"}%>
+      </div>
+       <div class="item">
+     <%= image_tag "opel.gif", {class: "img-responsive"}%>
+      </div>
+       <div class="item">
+     <%= image_tag "peugeot.gif", {class: "img-responsive"}%>
+      </div>
+       <div class="item">
+     <%= image_tag "renault.gif", {class: "img-responsive"}%>
+      </div>
+       <div class="item">
+     <%= image_tag "toyota.gif", {class: "img-responsive"}%>
+      </div>
+       <div class="item">
+     <%= image_tag "volvo.gif", {class: "img-responsive"}%>
+      </div>
+       <div class="item">
+     <%= image_tag "wolsvagen.gif", {class: "img-responsive"}%>
       </div>
     </div>
   </div>

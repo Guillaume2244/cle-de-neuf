@@ -147,7 +147,6 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
  .one_third		{	width:32%; margin-right:1%; float:left;}
  .one_third.last{	margin-right:0;}
 
- a,a:visited	{	color:#e33a0c}
  a:hover		{	text-decoration: none;}
 
 .prevnext		{	width:615px;height:23px;position: fixed; left:50%; margin-left:-272px;top:-2px;z-index:1000;
