@@ -53,8 +53,6 @@ class BooksController < ApplicationController
   private
 
 
-
-
   def find_book
     @book = Book.find(params[:id])
     authorize @book
@@ -62,6 +60,10 @@ class BooksController < ApplicationController
 
   def generate_token
     token = SecureRandom.urlsafe_base64(nil, false).first(5)
+  end
+
+  def book_params
+    params.require(:book).permit(:registration_plate, :initial_km, :circulation_date)
   end
 
   def new_checkup_not_done
