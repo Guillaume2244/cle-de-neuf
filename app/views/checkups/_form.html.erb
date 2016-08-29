@@ -3,7 +3,7 @@
   <%= simple_form_for [ @book, @checkup ], url: book_checkups_path do |f| %>
   <%= f.error_notification %>
 <p> Date de l'ajout: <%= Date.today%></p>
-  <%= f.input :checkup_item, collection: CheckupItem.all, label_method: :name %>
+  <%= f.input :checkup_item, collection: CheckupItem.all, label_method: :description %>
   <%= f.input :km_ondate, required: true %>
   <%= f.input :facture %>
   <%= f.input :facture_cache, as: :hidden %>
@@ -14,3 +14,5 @@
   <% end %>
 
 </div>
+
+
