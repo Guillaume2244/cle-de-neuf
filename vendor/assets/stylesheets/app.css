@@ -702,6 +702,20 @@ a.btn-u-xs {
    border-left: solid 1px #c0392b;
 }
 
+.btn-u.btn-u-9 {
+   background: #72c02c;
+}
+.btn-u.btn-u-9:hover,
+.btn-u.btn-u-9:focus,
+.btn-u.btn-u-9:active,
+.btn-u.btn-u-9.active,
+.open .dropdown-toggle.btn-u.btn-u-9 {
+   background: #7cd32a;
+}
+.btn-u.btn-u-split-9.dropdown-toggle {
+   border-left: solid 1px #7cd32a;
+}
+
 .btn-u.btn-u-orange {
    background: #e67e22;
 }
