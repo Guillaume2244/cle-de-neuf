@@ -1,8 +1,7 @@
  <div class="container content">
   <div class="row">
     <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
-     <form class="reg-page">
-      <div class="reg-header">
+    <div class="reg-header">
         <h2>Login to your account</h2>
       </div>
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -27,7 +26,6 @@
         </div>
       </div>
       <% end %>
-    </form>
   </div>
 </div>
 </div>
