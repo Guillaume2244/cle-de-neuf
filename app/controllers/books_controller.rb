@@ -31,15 +31,7 @@ class BooksController < ApplicationController
     @book.template = Template.first
     @book.save
     pneus
-    freinage
-    revision
-    balai
-    echappement
-    amortisseurs
-    bougies
-    climatisation
-    controle_technique_f
-    vidange
+
     redirect_to book_path(@book)
   end
 
@@ -80,7 +72,8 @@ class BooksController < ApplicationController
       n = (@book.initial_km.to_i / @book.template.pneus_km.to_i).round
       (1..n).each do |i|
       new_checkup_not_done
-      @c.checkup_item = CheckupItem.where(name:"Pneus", numero: i).first
+      @c.checkup_item = CheckupItem.where(name:"Pneus").first
+      @c.checkup_item.descriptions.where(numero: i).first
       @c.save
      end
     end

@@ -59,11 +59,13 @@
 <hr>
 
 <h1> MES ENTRETIENS A EFFECTUER </h1>
-<% @book.checkups.where(done: false).each do |checkup| %>
-      <% if checkup.checkup_item %>
-       <p><%= checkup.checkup_item.name %> : <%= checkup.checkup_item.description%> </p>
-    <% end %>
-<% end %>
+        <% @book.checkups.where(done: false).each do |checkup| %>
+            @checkup = checkup
+        <% end %>
+      <% if @checkup.checkup_item %>
+       <p><%= @v = @checkup.checkup_item %> </p>
+        <%= @v.descriptions.first.name %>
+      <% end %>
 
 
 

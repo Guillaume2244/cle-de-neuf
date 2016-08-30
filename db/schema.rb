@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160829205142) do
+ActiveRecord::Schema.define(version: 20160830090344) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,10 +35,8 @@ ActiveRecord::Schema.define(version: 20160829205142) do
 
   create_table "checkup_items", force: :cascade do |t|
     t.string   "name"
-    t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "numero"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "checkups", force: :cascade do |t|
@@ -55,6 +53,15 @@ ActiveRecord::Schema.define(version: 20160829205142) do
     t.index ["book_id"], name: "index_checkups_on_book_id", using: :btree
     t.index ["checkup_item_id"], name: "index_checkups_on_checkup_item_id", using: :btree
     t.index ["garage_id"], name: "index_checkups_on_garage_id", using: :btree
+  end
+
+  create_table "descriptions", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "numero"
+    t.integer  "checkup_item_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["checkup_item_id"], name: "index_descriptions_on_checkup_item_id", using: :btree
   end
 
   create_table "garages", force: :cascade do |t|
@@ -121,5 +128,6 @@ ActiveRecord::Schema.define(version: 20160829205142) do
   add_foreign_key "books", "templates"
   add_foreign_key "books", "users"
   add_foreign_key "checkups", "checkup_items"
+  add_foreign_key "descriptions", "checkup_items"
   add_foreign_key "garages", "users"
 end
