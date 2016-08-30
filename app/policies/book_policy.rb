@@ -10,11 +10,7 @@ class BookPolicy < ApplicationPolicy
   end
 
   def create?
-    if user.garagiste
-      false
-    else
-      true
-    end
+     true
   end
 
   def update?
@@ -26,8 +22,8 @@ class BookPolicy < ApplicationPolicy
   end
 
   def show?
-    @garage = user.garages.first
-    record.user == user || record.is_garagiste(user) || record.registration_plate == @garage.registration_plate && record.token == @garage.token
+  @garage = user.garages.first
+  record.user == user || record.is_garagiste(user) || record.registration_plate == @garage.registration_plate && record.token == @garage.token
   end
 
 end
