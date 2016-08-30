@@ -1,9 +1,10 @@
-Template.destroy_all
 Garage.destroy_all
 Book.destroy_all
-CheckupItem.destroy_all
+Template.destroy_all
 Checkup.destroy_all
 User.destroy_all
+CheckupItem.destroy_all
+
 
 
 toto = User.create!(email:"toto@gmail.com", password: '123456', garagiste: true)

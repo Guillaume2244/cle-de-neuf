@@ -89,33 +89,34 @@
                 <tr>
 
                   <td> <% if book.name %>
-                          <%= book.name %>
-                       <% end %> </td>
-                  <td class="td-width"><%= book.registration_plate %></td>
-                  <td><%= book.circulation_date %></td>
-                  <td><%= book.initial_km %>km.</td>
-                  <td>
-                    <% if book.checkups.last %>
+                    <%= book.name %>
+                    <% end %> </td>
+                    <td class="td-width"><%= book.registration_plate %></td>
+                    <td><%if book.circulation_date %>
+                    <%= book.circulation_date.strftime("%d/%m/%y") %>
+                      <% end %></td>
+                    <td><%= book.initial_km %>km.</td>
+                    <td>
+                      <% if book.checkups.last %>
                       <% if book.checkups.last.checkup_item %>
-                        <%= book.checkups.last.checkup_item.name %> le
-                        <%= book.checkups.last.checkup_item.created_at.strftime("%d/%m/%y") %>
+                      <%= book.checkups.last.checkup_item.name %> le
+                      <%= book.checkups.last.checkup_item.created_at.strftime("%d/%m/%y") %>
                       <% end %>
-                    <% end %>
-                  </td>
-                  <td> <%= link_to "Carnet", book_path(book) , class: "btn-u btn-u-9 btn-block btn-u-xs" %> <i class="fa fa-car margin-right-5"></i> </td>
+                      <% end %>
+                    </td>
+                    <td> <%= link_to "Carnet ", book_path(book) , class: "btn-u btn-u-9 btn-u-xs" %> </i> </td>
 
-
-                </tr>
-                <%end%>
-              </tbody>
-            </table>
+                  </tr>
+                  <%end%>
+                </tbody>
+              </table>
+            </div>
           </div>
-        </div>
-        <!--End Table Search v1-->
-      </div><!--/end row-->
+          <!--End Table Search v1-->
+        </div><!--/end row-->
+      </div>
+      <!--End Profile Body-->
     </div>
-    <!--End Profile Body-->
-  </div>
-</div><!--/end row-->
+  </div><!--/end row-->
 </div><!--/container-->
 <!--=== End Profile ===-->
