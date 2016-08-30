@@ -17,4 +17,8 @@ class CheckupPolicy < ApplicationPolicy
     true
   end
 
+  def items?
+    true
+  end
+
 end

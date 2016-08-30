@@ -9,7 +9,13 @@
 
         <%= simple_form_for [ @book, @checkup ], url: book_checkups_path do |f| %>
         <%= f.error_notification %>
-        <%= f.input :checkup_item, collection: CheckupItem.all, label_method: :description %>
+        <%= select_tag :checkup_item_category, options_for_select([ "Pneus", "Freinage", "Revision", "Balai essui glace", "Catalyseur d'echappement", "Amortisseurs", "Bougies", "Climatisation", "Controle Technique", "Vidange" ], 'Pneus'), data: {
+            remote: true,
+            url: checkup_items_path
+          } %>
+
+        <%= f.input :checkup_item, collection: CheckupItem.all.where(name: "Pneus"), label_method: :description %>
+
         <%= f.input :km_ondate, required: true, placeholder: 'Kilométrage actuel', label: false %>
         <h4> Date de l'ajout le : <b><%= Date.today.strftime("%d/%m/%y")%></b> </h4>
 
@@ -26,5 +32,4 @@
   </div>
 </div>
 </div>
-
 
