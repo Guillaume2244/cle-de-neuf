@@ -1,0 +1,9 @@
+$('#checkup_checkup_item').replaceWith(
+  "<%= j select_tag(\
+          'checkup[checkup_item]',\
+          options_from_collection_for_select(@checkup_items, :id, :description),\
+          class: 'select optional form-control'\
+          )\
+  %>"
+)
+
