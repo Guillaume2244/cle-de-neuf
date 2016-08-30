@@ -44,6 +44,12 @@ class CheckupsController < ApplicationController
   def destroy
   end
 
+  def items
+    authorize :checkup
+    @checkup_items = CheckupItem.where(name: params[:checkup_item_category])
+    render javascript: 'items'
+  end
+
   private
 
   def checkup_params

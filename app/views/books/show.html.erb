@@ -37,7 +37,7 @@
       <p> Entretien : <%= checkup.checkup_item.name %> -
       <%= checkup.km_ondate %> km -
       Effectué le <%= checkup.created_at.strftime("%F") %>
-      <%= checkup.checkup_item.category %> </p>
+      <%= checkup.checkup_item.name %> </p>
     <a target="_blank" href="<%= cloudinary_url(checkup.facture) %>" >
       <p>Lien vers la facture</p>
     </a>

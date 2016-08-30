@@ -2,8 +2,9 @@ Garage.destroy_all
 Book.destroy_all
 Template.destroy_all
 Checkup.destroy_all
-User.destroy_all
 CheckupItem.destroy_all
+User.destroy_all
+
 
 
 

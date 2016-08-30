@@ -95,7 +95,7 @@
                     <td><%if book.circulation_date %>
                     <%= book.circulation_date.strftime("%d/%m/%y") %>
                       <% end %></td>
-                    <td><%= book.initial_km %>km.</td>
+                    <td><%= book.initial_km %>km</td>
                     <td>
                       <% if book.checkups.last %>
                       <% if book.checkups.last.checkup_item %>
