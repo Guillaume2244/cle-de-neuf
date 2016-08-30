@@ -1,71 +1,162 @@
-<div class="container">
-  <div class="row">
 
-<h2>Carnet d'entretien de <%= @book.name %> : <%= @book.registration_plate %></h2>
-<% if current_user.garagiste %>
-  <p><%= link_to 'Retour sur mon dahsboard', garages_path %></p>
-<% else %>
-  <p><%= link_to 'Retour sur mon dahsboard', books_path %></p>
-<% end %>
-    </div>
-    </div>
+<div class="profile container">
+  <div class="row content">
+    <div class="col-md-12">
+      <!--Profile Body-->
+      <div class="profile-body">
+        <!--Service Block v3-->
+        <div class="row margin-bottom-10">
+          <div class="col-sm-10 sm-margin-bottom-20">
+            <div class="service-block-v3 servive-block-u">
+              <i class="icon-users"></i>
+              <span class="service-heading"></span>
+              <span class="counter">Carnet d'entretien de <%= @book.name %> </span>
 
+              <div class="clearfix margin-bottom-10"></div>
 
-<div class="container">
-  <div class="row">
-        <h3>Mon véhicule</h3>
-    <div class="col-xs-12 col-sm-3">
-      <p><%= @book.registration_plate %></p>
-      <p><%= @book.circulation_date %></p>
-      <p><%= @book.initial_km %></p>
-      <% if !current_user.garagiste %>
-      <h2>MON TOKEN pour CE véhicule : <%= @book.token %></h2>
-      <% end %>
+              <div class="row margin-bottom-20">
+                <div class="col-xs-6 service-in">
+                  <small>Mon véhicule</small>
+                  <h4 class="counter">  </h4>
+                  <h4 class="counter"> Immatriculation = <%= @book.registration_plate %></h4>
+                  <small></small>
+                  <h4 class="counter">  </h4>
+                  <h4 class="counter"> Mise en circulation le <%= @book.circulation_date.strftime("%d/%m/%y") %></h4>
+                  <small></small>
+
+                  <h4 class="counter">  </h4>
+                  <h4 class="counter"> Kilométrage initial = <%= @book.initial_km %>km</h4>
+                </div>
+                <div class="col-xs-6 text-left service-in">
+                  <small> mes infos</small>
+                  <h4 class="counter">  </h4>
+                  <h4 class="counter"> <%= @book.name %> parcourt environ <%=(@book.average_km.to_i * 365).round%> km par an</h4>
+                </div>
+                <div class="col-xs-6 text-left service-in">
+                  <small></small>
+                  <h4 class="counter">   </h4>
+                  <h4 class="counter"> <% if !current_user.garagiste %>
+                   Token du véhicule = <%= @book.token %><% end %>
+                 </h4>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div><!--/end row-->
+     </div>
+
+     <div class="col-sm-10 sm-margin-bottom-20">
+       <div class="headline"><h2>Mes entretiens réalisés</div>
+       <p><%= link_to 'Ajouter un entretien', new_book_checkup_path(@book) %></p>
+       <div class="table-search-v1 margin-bottom-20">
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th class="hidden-sm">Entretien</th>
+                <th> </th>
+                <th> Effectué par </th>
+                <th> Kilométrage </th>
+                <th>Facture</th>
+              </tr>
+            </thead>
+
+            <br>
+            <tbody>
+              <%@checkups.where.not(done: false, km_ondate: nil).reverse_each do |checkup|%>
+              <tr>
+                <td> <%= checkup.created_at.strftime("%d/%m/%y") %> </td>
+                <td class="td-width"><%= checkup.checkup_item.name %></td>
+                <% if checkup.garage %>
+                <td><i class=" fa-certificate" style="color: #3498DB;"></i> </td>
+                <td><%=checkup.garage.name%> </td>
+                <% else %>
+                <td><i class="fa fa-user-md" style="color: #72C02C;"></i> </td>
+                <td> Vous </td>
+                <% end %>
+              </td>
+              <td>  <%= checkup.km_ondate %>km</td>
+              <td> <a target="_blank" href="<%= cloudinary_url(checkup.facture) %>" >
+                <p>Lien vers la facture</p>
+              </a></td>
+              <td>
+              </td>
+            </tr>
+            <%end%>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>
-<hr>
 
-<div class="container">
-  <div class="row">
-  <h2> MOYENNE DE KM / AN </h2>
-   <%= (@book.average_km.to_i * 365).round  %>
-        <h3>Entretiens de mon véhicule</h3>
-    <div class="col-xs-12 col-sm-3">
-      <p><%= link_to 'Add a checkup', new_book_checkup_path(@book) %></p>
-      <%@checkups.where.not(done: false, km_ondate: nil).each do |checkup|%>
-      <p> Entretien : <%= checkup.checkup_item.name %> -
-      <%= checkup.km_ondate %> km -
-      Effectué le <%= checkup.created_at.strftime("%F") %>
-      <%= checkup.checkup_item.category %> </p>
-    <a target="_blank" href="<%= cloudinary_url(checkup.facture) %>" >
-      <p>Lien vers la facture</p>
-    </a>
 
-      Effectué par :
-      <% if checkup.garage %>
-        <%= checkup.garage.name %>
-        <img src="http://matchingtool.basic-check.ch/static/imgs/check-mark.svg", height="50", width="50">
-      <% else %>
-        <p>Le Propriétaire du véhicule </p>
-        <img src="https://blog.mailchimp.com/wp-content/uploads/2014/05/Notcheck.png", height="50", width="50">
-        <hr>
-      <% end %>
-      <br>
-      <%end%>
+<div class="profile container">
+  <div class="row content">
+    <div class="col-md-12">
+      <!--Profile Body-->
+      <div class="profile-body">
+        <!--Service Block v3-->
+        <div class="row margin-bottom-10">
+          <div class="col-sm-10 sm-margin-bottom-20">
+            <div class="headline"><h2>Mes entretiens à venir </div>
+            <div class="table-search-v1 margin-bottom-20">
+              <div class="table-responsive">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>Date</th>
+                      <th class="hidden-sm">Entretien</th>
+                      <th> </th>
+                      <th> Effectué par </th>
+                      <th> Kilométrage </th>
+                      <th>Facture</th>
+                    </tr>
+                  </thead>
+
+                  <br>
+                  <tbody>
+                    <%@checkups.where.not(done: false, km_ondate: nil).reverse_each do |checkup|%>
+                    <tr>
+                      <td> <%= checkup.created_at.strftime("%d/%m/%y") %> </td>
+                      <td class="td-width"><%= checkup.checkup_item.name %></td>
+                      <% if checkup.garage %>
+                      <td><i class=" fa-certificate" style="color: #3498DB;"></i> </td>
+                      <td><%=checkup.garage.name%> </td>
+                      <% else %>
+                      <td><i class="fa fa-user-md" style="color: #72C02C;"></i> </td>
+                      <td> Vous </td>
+                      <% end %>
+                    </td>
+                    <td>  <%= checkup.km_ondate %>km</td>
+                    <td> <a target="_blank" href="<%= cloudinary_url(checkup.facture) %>" >
+                      <p>Lien vers la facture</p>
+                    </a></td>
+                    <td>
+                    </td>
+                  </tr>
+                  <%end%>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-<hr>
+</div>
+</div>
 
 <h1> MES ENTRETIENS A EFFECTUER </h1>
 <% @book.checkups.where(done: false).each do |checkup| %>
-      <% if checkup.checkup_item %>
-       <p><%= checkup.checkup_item.name %> : <%= checkup.checkup_item.description%> </p>
-    <% end %>
+<% if checkup.checkup_item %>
+<p><%= checkup.checkup_item.name %> : <%= checkup.checkup_item.description%> </p>
+<% end %>
 <% end %>
 
-
+</div>
 
 
 
