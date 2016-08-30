@@ -4,10 +4,10 @@
   <%= simple_form_for @book, url: books_path do |f| %>
   <%= f.error_notification %>
 
-  <%= f.input :registration_plate, required: true %>
-  <%= f.input :initial_km, required: true %>
-  <%= f.input :circulation_date, as: :date, start_year: Date.today.year - 25, end_year: Date.today.year - 0 %>
-  <%= f.input :name, required: true%>
+  <%= f.input :name, required: true, label: false,placeholder: 'Nom du véhicule'%>
+  <%= f.input :registration_plate, required: true, label: false,placeholder: 'Immatriculation' %>
+  <%= f.input :initial_km, required: true, label: false,placeholder: 'Kilométrage' %>
+  <%= f.input :circulation_date, as: :date, start_year: Date.today.year - 15, end_year: Date.today.year - 0 %>
 
   <div class="form-actions">
     <%= f.button :submit, "Update!" %>
@@ -15,3 +15,5 @@
   <% end %>
 
 </div>
+
+

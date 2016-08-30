@@ -704,6 +704,8 @@ a.btn-u-xs {
 
 .btn-u.btn-u-9 {
    background: #72c02c;
+     color: white;
+
 }
 .btn-u.btn-u-9:hover,
 .btn-u.btn-u-9:focus,
@@ -711,9 +713,11 @@ a.btn-u-xs {
 .btn-u.btn-u-9.active,
 .open .dropdown-toggle.btn-u.btn-u-9 {
    background: #7cd32a;
+   color: white;
 }
 .btn-u.btn-u-split-9.dropdown-toggle {
    border-left: solid 1px #7cd32a;
+     color: white;
 }
 
 .btn-u.btn-u-orange {
