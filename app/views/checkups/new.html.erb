@@ -4,27 +4,14 @@
     <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
       <div class="reg-header">
         <h2>Ajouter un entretien
-        <p><%= link_to 'Retour sur mon véhicule', book_path(params[:book_id]) %></p></h2>
+          <p><%= link_to 'Retour sur mon véhicule', book_path(params[:book_id]) %></p></h2>
 
+          <%= render 'form' %>
 
-        <%= simple_form_for [ @book, @checkup ], url: book_checkups_path do |f| %>
-        <%= f.error_notification %>
-        <%= f.input :checkup_item, collection: CheckupItem.all, label_method: :description %>
-        <%= f.input :km_ondate, required: true, placeholder: 'Kilométrage actuel', label: false %>
-        <h4> Date de l'ajout le : <b><%= Date.today.strftime("%d/%m/%y")%></b> </h4>
-
-        <%= f.input :facture %>
-        <%= f.input :facture_cache, as: :hidden %>
-
-        <div class="form-actions">
-          <button class="btn-u pull-right" type="submit">Ajouter !</button>
         </div>
-        <% end %>
-
       </div>
     </div>
   </div>
-</div>
 </div>
 
 
