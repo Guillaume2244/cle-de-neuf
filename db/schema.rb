@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160829205142) do
+ActiveRecord::Schema.define(version: 20160830155202) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,10 +48,11 @@ ActiveRecord::Schema.define(version: 20160829205142) do
     t.string   "km_ondate"
     t.date     "estimated_date"
     t.boolean  "done"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
     t.integer  "book_id"
     t.string   "facture"
+    t.string   "estimated_date_string"
     t.index ["book_id"], name: "index_checkups_on_book_id", using: :btree
     t.index ["checkup_item_id"], name: "index_checkups_on_checkup_item_id", using: :btree
     t.index ["garage_id"], name: "index_checkups_on_garage_id", using: :btree
