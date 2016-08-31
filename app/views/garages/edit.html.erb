@@ -1,13 +1,25 @@
-<div class="col-xs-12 col-md-4 col-md-offset-4">
+<div class="container content">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+      <div class="reg-header">
+        <h2>Accéder à un carnet d'entretien</h2>
+        <p><%= link_to "Back to dashboard", :back , { :class=>"colorp" }  %></p></h2>
 
-  <%= simple_form_for @garage do |f| %>
-  <%= f.error_notification %>
-  <%= f.input :registration_plate, required: true %>
-  <%= f.input :token, required: true %>
+        <br>
+      </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Update!" %>
+      <%= simple_form_for @garage do |f| %>
+      <%= f.error_notification %>
+      <%= f.input :registration_plate, required: true, label: false,placeholder: 'Immatriculation' %>
+      <%= f.input :token, required: true, label: false,placeholder: 'Token' %>
+      <br>
+      <div class="form-actions">
+        <button class="btn-u btn-u-10 pull-right" type="submit">Accéder !</button>
+      </div>
+      <% end %>
+    </div>
   </div>
-  <% end %>
-
 </div>
+</div>
+
+

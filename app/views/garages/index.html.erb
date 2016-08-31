@@ -1,47 +1,88 @@
-<div class="container">
+
+
+<!--=== Profile ===-->
+<div class="profile container content">
   <div class="row">
-    <div class="col-xs-12 col-sm-3">
-      <h2>Mon garage</h2>
-      <%= @garage.name %>
-      <br>
-      <%= @garage.siret %>
-      <br>
-      <%= @garage.address %>
-      <br>
-      <%= @garage.city %>
-      <br>
-      <%= @garage.zip_code %>
-      <br>
-      <%= @garage.phone_number %>
+
+    <div class="col-md-12">
+      <!--Profile Body-->
+      <div class="profile-body">
+        <!--Service Block v3-->
+        <div class="row margin-bottom-10">
+
+
+          <div class="col-sm-6 sm-margin-bottom-20">
+            <div class="service-block-v3 servive-block-blue">
+              <i class="icon-users"></i>
+              <span class="service-heading"></span>
+              <span class="counter">Mon profil garage</span>
+
+
+              <div class="row margin-bottom-20">
+                <div class="col-xs-4 service-in statistics">
+                  <h4 class="heading-xs">Adresse mail</h4>
+                  <h4 class="heading-xs">Garage</h4>
+                  <h4 class="heading-xs">N° SIRET</h4>
+                  <h4 class="heading-xs">Adresse</h4>
+                  <h4 class="heading-xs">Ville</h4>
+                  <h4 class="heading-xs">N° téléphone</h4>
+
+                </div>
+                <div class="col-xs-6 text-left service-in">
+                  <h4 class="counter"><%= current_user.email %></h4>
+                  <h4 class="counter"><%= @garage.name %></h4>
+                  <h4 class="counter"><%= @garage.siret %></h4>
+                  <h4 class="counter"><%= @garage.address %></h4>
+                  <h4 class="counter"><%= @garage.city %>, <%= @garage.zip_code %></h4>
+                  <h4 class="counter"><%= @garage.phone_number %></h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!--/end row-->
+        <!--End Service Block v3-->
+        <div class="col-sm-12 sm-margin-bottom-20">
+
+          <div class="headlinep"><h2>Mes entretiens réalisés </div>
+
+          <div class="colorp"> <h3> <%= link_to 'Ajouter un véhicule', edit_garage_path(@garage), { :class=>"colorp" } %></h3> </div>
+          <!--Table Search v1-->
+          <div class="table-search-v1 margin-bottom-20">
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>Nom du client</th>
+                    <th class="hidden-sm">Adresse mail</th>
+                    <th>Véhicule</th>
+                    <th> Entretien </th>
+                    <th>Effectué le</th>
+                    <th>Carnet</th>
+                  </tr>
+                </thead>
+                <tbody>
+                <% @checkups.reverse_each do |checkup| %>
+                  <tr>
+
+                    <td> <%= checkup.book.user.last_name %></td>
+                    <td class="td-width"><%= checkup.book.user.email %></td>
+                    <td><%= checkup.book.registration_plate %></td>
+                    <td><%= checkup.checkup_item.name %></td>
+                    <td><%= checkup.created_at.strftime("%d/%m/%y") %></td>
+                    <td> <%= link_to "Carnet ", book_path(checkup.book) , class: "btn-u btn-u-10 btn-u-xs" %> </i> </td>
+                  </td>
+                </tr>
+                <%end%>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!--End Table Search v1-->
+      </div><!--/end row-->
     </div>
   </div>
+  <!--End Profile Body-->
 </div>
-<hr>
-
-
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-3">
-      <h2>Mes entretiens enffectués</h2>
-      <% @checkups.each do |checkup| %>
-      <%= checkup.checkup_item.category %>
-      <%= checkup.checkup_item.description %>
-      <p>Pour le compte de Mr</p>
-      <%= checkup.checkup_item.name %>
-      <%= checkup.book.user.email %>
-      <%= checkup.book.user.first_name %>
-      <%= checkup.book.user.last_name %>
-      <%= checkup.created_at %>
-      <%= link_to "voir le carnet d'entretien", book_path(checkup.book) %>
-      <br>
-      <br>
-      <br>
-      <% end %>
-    </div>
-  </div>
-</div>
-<hr>
-
-<%= link_to 'Ajouter un client', edit_garage_path(@garage), class: "btn, btn-warning" %>
-
-
+</div><!--/end row-->
+</div><!--/container-->
+<!--=== End Profile ===-->
