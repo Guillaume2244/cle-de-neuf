@@ -12,8 +12,8 @@ toto = User.create!(email:"toto@gmail.com", password: '123456', garagiste: true)
 adrien = User.create!(email:"adrien@gmail.com", password: '123456', garagiste: true)
 jean = User.create!(email:"jean@gmail.com", password: '123456')
 
-g1 = Garage.create!(name:"Le beau garage", user:toto, siret:"142567")
-g2 = Garage.create!(name:"Le moche garage", user:adrien, siret:"14256799999")
+g1 = Garage.create!(name:"Le beau garage", user:toto, siret:"142567", city:"Lille", street:"12, rue des Tours", zip_code:"59000")
+g2 = Garage.create!(name:"Le moche garage", user:adrien, siret:"14256799999", city:"Lille", street:"128, rue nationale", zip_code:"59000")
 
 t1 = Template.create!(pneus_km:"40000", pneus_date:"5", freinage:"2", revision_km:"15000", revision_date:"1",
   balai:"1", echappement:"2",amortisseurs_km:"20000", amortisseurs_date:"1",

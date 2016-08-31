@@ -7,9 +7,6 @@ class Garage < ApplicationRecord
   validates :siret, presence: true
   validates :user, presence: true
 
-  validates :street, presence: true
-  validates :zip_code, presence: true
-  validates :city, presence: true
 
   geocoded_by :full_address
   after_validation :geocode
