@@ -116,7 +116,8 @@
                   </thead>
                   <br>
                   <tbody>
-                    <% @book.checkups.where(done: false).each do |checkup| %>
+                    <% @book.checkups_first_to_do.each do |checkup| %>
+
                     <tr>
                       <% if checkup.checkup_item %>
                       <td><%= checkup.checkup_item.name %></td>
@@ -126,7 +127,7 @@
                         <i class="fa fa-times" style="color: #ff0000;"></i>
                         <% end %></td>
                         <td> <%= checkup.estimated_date_string.to_date.strftime("%d/%m/%y")%></td>
-                      <td><%= checkup.checkup_item.description %></td>
+                        <td><%= checkup.checkup_item.description %></td>
                         <td>test</td>
                         <% end %>
                       </tr>
