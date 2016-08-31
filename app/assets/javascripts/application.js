@@ -19,6 +19,8 @@
 //= require jquery.mousewheel
 //= require perfect-scrollbar
 //= require datepicker
+//= require underscore
+//= require gmaps/google
 
 
 //= require_tree .
