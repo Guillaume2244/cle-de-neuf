@@ -847,7 +847,7 @@
 
 .dropdown > a:after {
     top: 9px;
-    right: 15px;
+    right: 85px;
     content: "\f107";
 }
 
@@ -2661,7 +2661,7 @@ ul.labels-demo li {
 
 	.header-v3.header .navbar-default .navbar-nav > li > a {
 		font-size: 13px;
-		padding: 13px 30px 26px 20px;
+		padding: 13px 10x0px 26px 20px;
 	}
 
 	.header-v3.header .navbar-default .navbar-nav > li > a,

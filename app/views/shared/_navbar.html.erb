@@ -32,7 +32,7 @@
                <li>
                 <% if current_user.garagiste %>
                 <%= link_to garages_path do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Mon Garage") %>
+                <i class="fa fa-bar-chart"></i> <%= t(".profile", default: "Mon dashboard") %>
                 <% end %>
                 <% else %>
                 <%= link_to books_path do %>
