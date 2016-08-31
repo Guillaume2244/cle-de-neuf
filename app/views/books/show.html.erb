@@ -152,7 +152,7 @@
 <h1> MES ENTRETIENS A EFFECTUER </h1>
 <% @book.checkups.where(done: false).each do |checkup| %>
 <% if checkup.checkup_item %>
-<p><%= checkup.checkup_item.name %> : <%= checkup.checkup_item.description%> </p>
+<p><%= checkup.checkup_item.name %> : <%= checkup.estimated_date_string %> </p>
 <% end %>
 <% end %>
 
