@@ -6,4 +6,16 @@ class Garage < ApplicationRecord
   validates :name, presence: true
   validates :siret, presence: true
   validates :user, presence: true
+
+  validates :street, presence: true
+  validates :zip_code, presence: true
+  validates :city, presence: true
+
+  geocoded_by :full_address
+  after_validation :geocode
+
+  def full_address
+     "#{street},#{zip_code},#{city}"
+  end
+
 end

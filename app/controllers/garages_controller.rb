@@ -9,18 +9,22 @@ class GaragesController < ApplicationController
     @garage = Garage.new(garage_params)
     @garage.user = current_user
     authorize @garage
-    if @garage.save
+     if @garage.save
       redirect_to garages_path
-    else
-     render :new
+     else
+      render :new
+     end
    end
-  end
 
 
   def index
     @garages = policy_scope(Garage)
     @garage = @garages.first
     @checkups = @garage.checkups
+  end
+
+  def show
+    @garage_coordinates = { lat: @garage.latitude, lng: @garage.longitude }
   end
 
   def edit
@@ -44,7 +48,7 @@ class GaragesController < ApplicationController
   private
 
   def garage_params
-    params.require(:garage).permit(:name, :siret, :address, :city, :zip_code, :phone_number, :token, :registration_plate)
+    params.require(:garage).permit(:name, :siret, :street, :city, :zip_code, :phone_number, :token, :registration_plate)
   end
 
 end
