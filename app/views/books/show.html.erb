@@ -44,6 +44,8 @@
          </div>
        </div><!--/end row-->
      </div>
+     <div class="clearfix margin-bottom-10"></div>
+
 
      <div class="col-sm-10 sm-margin-bottom-20">
        <div class="headline"><h2>Mes entretiens réalisés</div>
@@ -61,7 +63,6 @@
                 <th>Facture</th>
               </tr>
             </thead>
-
             <br>
             <tbody>
               <%@checkups.where.not(done: false, km_ondate: nil).reverse_each do |checkup|%>
@@ -69,7 +70,7 @@
                 <td> <%= checkup.created_at.strftime("%d/%m/%y") %> </td>
                 <td class="td-width"><%= checkup.checkup_item.name %></td>
                 <% if checkup.garage %>
-                <td><i class=" fa-certificate" style="color: #3498DB;"></i> </td>
+                <td><i class="fa fa-certificate" style="color: #3498DB;"></i> </td>
                 <td><%=checkup.garage.name%> </td>
                 <% else %>
                 <td><i class="fa fa-user-md" style="color: #72C02C;"></i> </td>
@@ -90,7 +91,7 @@
     </div>
   </div>
 </div>
-
+</div>
 
 <div class="profile container">
   <div class="row content">
@@ -100,45 +101,40 @@
         <!--Service Block v3-->
         <div class="row margin-bottom-10">
           <div class="col-sm-10 sm-margin-bottom-20">
-            <div class="headline"><h2>Mes entretiens à venir </div>
+            <div class="headline"><h2>Mes entretiens à effectuer </div>
             <div class="table-search-v1 margin-bottom-20">
               <div class="table-responsive">
                 <table class="table table-hover">
                   <thead>
                     <tr>
-                      <th>Date</th>
-                      <th class="hidden-sm">Entretien</th>
+                      <th>Type d'entretien    </th>
                       <th> </th>
-                      <th> Effectué par </th>
-                      <th> Kilométrage </th>
+                      <th> A effectuer le </th>
+                      <th> Description     </th>
                       <th>Facture</th>
                     </tr>
                   </thead>
-
                   <br>
                   <tbody>
-                    <%@checkups.where.not(done: false, km_ondate: nil).reverse_each do |checkup|%>
+                    <% @book.checkups.where(done: false).each do |checkup| %>
                     <tr>
-                      <td> <%= checkup.created_at.strftime("%d/%m/%y") %> </td>
-                      <td class="td-width"><%= checkup.checkup_item.name %></td>
-                      <% if checkup.garage %>
-                      <td><i class=" fa-certificate" style="color: #3498DB;"></i> </td>
-                      <td><%=checkup.garage.name%> </td>
-                      <% else %>
-                      <td><i class="fa fa-user-md" style="color: #72C02C;"></i> </td>
-                      <td> Vous </td>
-                      <% end %>
-                    </td>
-                    <td>  <%= checkup.km_ondate %>km</td>
-                    <td> <a target="_blank" href="<%= cloudinary_url(checkup.facture) %>" >
-                      <p>Lien vers la facture</p>
-                    </a></td>
-                    <td>
-                    </td>
-                  </tr>
-                  <%end%>
-                </tbody>
-              </table>
+                      <% if checkup.checkup_item %>
+                      <td><%= checkup.checkup_item.name %></td>
+                      <td> <% if checkup.estimated_date_string.to_date >= Date.today %>
+                        <i class="fa fa-check" style="color: #326C36;"></i>
+                        <%else%>
+                        <i class="fa fa-times" style="color: #ff0000;"></i>
+                        <% end %></td>
+                        <td> <%= checkup.estimated_date_string.to_date.strftime("%d/%m/%y")%></td>
+                      <td><%= checkup.checkup_item.description %></td>
+                        <td>test</td>
+                        <% end %>
+                      </tr>
+                      <%end%>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -146,16 +142,6 @@
     </div>
   </div>
 </div>
-</div>
-</div>
-
-<h1> MES ENTRETIENS A EFFECTUER </h1>
-<% @book.checkups.where(done: false).each do |checkup| %>
-<% if checkup.checkup_item %>
-<p><%= checkup.checkup_item.name %> : <%= checkup.estimated_date_string %> </p>
-<% end %>
-<% end %>
-
 </div>
 
 

@@ -463,7 +463,7 @@
 	}
 
 	.header .navbar-default .navbar-nav > li > a {
-		padding: 9px 30px 9px 20px;
+		padding: 9px 100px 9px 20px;
 	}
 
 	.header .navbar-default .navbar-nav > li > a,
@@ -3781,4 +3781,9 @@ body.dark .tp-banner-container .btn-u.btn-brd.btn-u-light {
 	background: #fff;
 	margin-left: -35px;
 	position: absolute;
+}
+
+
+.table {
+  border: 1px solid #e5e5e5;
 }
