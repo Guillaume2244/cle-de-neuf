@@ -24,6 +24,7 @@ en:
   devise:
     sessions:
       user:
-        signed_in: 'Bonjour vous êtes désormais connecté'
+        signed_in: 'Bonjour, vous êtes désormais connecté'
         signed_out: "Aurevoir, à la prochaine"
+        signed_up: "Bienvenue, vous êtes désormais connecté"
 
