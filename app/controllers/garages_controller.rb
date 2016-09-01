@@ -5,16 +5,16 @@ class GaragesController < ApplicationController
     authorize @garage
   end
 
-   def create
+  def create
     @garage = Garage.new(garage_params)
     @garage.user = current_user
     authorize @garage
-     if @garage.save
+    if @garage.save
       redirect_to garages_path
-     else
+    else
       render :new
-     end
-   end
+    end
+  end
 
 
   def index
@@ -40,7 +40,9 @@ class GaragesController < ApplicationController
     @books.each do |book|
       if book.registration_plate == @garage.registration_plate && book.token == @garage.token
         @find = book
-      redirect_to book_path(@find)
+        redirect_to book_path(@find)
+      else
+        flash.alert = "Le token ne correspond pas. Veuillez-réessayer ! bisous"
       end
     end
   end

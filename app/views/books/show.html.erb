@@ -116,7 +116,7 @@
                   </thead>
                   <br>
                   <tbody>
-                    <% @book.checkups.where(done: false).each do |checkup| %>
+                    <% @book.checkups.where(done: false).reverse_each do |checkup| %>
                     <tr>
                       <% if checkup.checkup_item %>
                       <td><%= checkup.checkup_item.name %></td>
