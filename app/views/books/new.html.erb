@@ -1,28 +1,42 @@
-<div class="container content">
-  <div class="row">
-    <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
-      <div class="reg-header">
-        <h2>Ajouter un véhicule
-          <p><%= link_to "Back to dashboard", :back %></p></h2>
+<div class="banner" style="background-image: url('https://hd.unsplash.com/photo-1446603420622-4c498ae0cc8e');">
+
+
+
+  <div class="container content">
+    <div class="row">
+      <div class="col-md-3 md-margin-bottom-40"></div>
+
+      <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+        <div class="reg-header">
+          <p>Ajouter un véhicule
+            <br>
+            <p><%= link_to "Back to dashboard", :back %></p>
+          </div>
+          <br>
+          <%= simple_form_for @book, url: books_path do |f| %>
+          <%= f.error_notification %>
+          <%= f.input :name, required: true, label: false,placeholder: 'Nom du véhicule'%>
+          <%= f.input :registration_plate, required: true, label: false,placeholder: 'Immatriculation' %>
+          <%= f.input :initial_km, required: true, label: false,placeholder: 'Kilométrage' %>
+          <div class="pull-left">
+
+            <%= f.input :circulation_date, as: :date, start_year: Date.today.year - 15, end_year: Date.today.year - 0 %>
+          </div>
+          <br>
+          <br>
+          <br>
+          <br>
+          <div class="form-actions">
+            <button class="btn-u pull-right" type="submit">Créer </button>
+          </div>
+          <% end %>
+
+
         </div>
-
-        <%= simple_form_for @book, url: books_path do |f| %>
-        <%= f.error_notification %>
-
-        <%= f.input :name, required: true, label: false,placeholder: 'Nom du véhicule'%>
-        <%= f.input :registration_plate, required: true, label: false,placeholder: 'Immatriculation' %>
-        <%= f.input :initial_km, required: true, label: false,placeholder: 'Kilométrage' %>
-        <%= f.input :circulation_date, as: :date, start_year: Date.today.year - 15, end_year: Date.today.year - 0 %>
-
-        <div class="form-actions">
-      <button class="btn-u pull-right" type="submit">Créer </button>
-        </div>
-        <% end %>
-
-
       </div>
     </div>
   </div>
+</div>
 </div>
 
 
