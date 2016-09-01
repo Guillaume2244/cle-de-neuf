@@ -98,21 +98,7 @@ class BooksController < ApplicationController
       @c.save
 
     end
-    v = Date.today + z
-    new_checkup_not_done
-    @c.estimated_date_string = v
-    @c.checkup_item = CheckupItem.where(name:"Pneus", numero: n + 1).first
-    @c.save
-    new_checkup_not_done
-    @c.estimated_date_string = v + z
-    @c.checkup_item = CheckupItem.where(name:"Pneus", numero: n + 2).first
-    @c.save
-  else
-    new_checkup_not_done
-    @c.estimated_date_string = @book.circulation_date + (a * 365)
-    @c.checkup_item = CheckupItem.where(name:"Pneus", numero: 1).first
-    @c.save
-  end
+
 end
 
 def freinage
