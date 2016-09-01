@@ -19,5 +19,11 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
+
 en:
-  hello: "Hello world"
+  devise:
+    sessions:
+      user:
+        signed_in: 'Bonjour vous êtes désormais connecté'
+        signed_out: "Aurevoir, à la prochaine"
+
