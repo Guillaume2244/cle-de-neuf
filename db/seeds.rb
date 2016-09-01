@@ -30,11 +30,14 @@ c1 = CheckupItem.create!(name:"Pneus", description:"40 000km ou > 5 ans", numero
 c2 = CheckupItem.create!(name:"Pneus", description:"80 000km ou > 10 ans", numero: 2)
 c3 = CheckupItem.create!(name:"Pneus", description:"120 000km ou > 15 ans", numero: 3)
 c4 = CheckupItem.create!(name:"Pneus", description:"160 000km ou > 20 ans", numero: 4)
+c5 = CheckupItem.create!(name:"Pneus", description:"Autre", numero: 5)
+
 
 c5 = CheckupItem.create!(name:"Freinage", description:"Véhicule >= 2ans", numero: 1)
 c6 = CheckupItem.create!(name:"Freinage", description:"Véhicule >= 4ans", numero: 2)
 c7 = CheckupItem.create!(name:"Freinage", description:"Véhicule >= 6ans", numero: 3)
 c8 = CheckupItem.create!(name:"Freinage", description:"Véhicule >= 8ans", numero: 4)
+c9 = CheckupItem.create!(name:"Freinage", description:"Autre", numero: 5)
 
 d1 = CheckupItem.create!(name:"Revision", description:"15 000km ou > 1an", numero: 1)
 d2 = CheckupItem.create!(name:"Revision", description:"30 000km ou > 2ans", numero: 2)
@@ -42,19 +45,22 @@ d3 = CheckupItem.create!(name:"Revision", description:"45 000km ou > 3ans", nume
 d4 = CheckupItem.create!(name:"Revision", description:"60 000km ou > 4ans", numero: 4)
 d5 = CheckupItem.create!(name:"Revision", description:"75 000km ou > 5ans", numero: 5)
 d6 = CheckupItem.create!(name:"Revision", description:"90 000km ou > 6ans", numero: 6)
+d7 = CheckupItem.create!(name:"Revision", description:"Autre", numero: 7)
 
-e1 = CheckupItem.create!(name:"Balai essui glace", description:"Véhicule >= 1an", numero: 1)
-e2 = CheckupItem.create!(name:"Balai essui glace", description:"Véhicule >= 2ans", numero: 2)
-e3 = CheckupItem.create!(name:"Balai essui glace", description:"Véhicule >= 3ans", numero: 3)
-e4 = CheckupItem.create!(name:"Balai essui glace", description:"Véhicule >= 4ans", numero: 4)
-e5 = CheckupItem.create!(name:"Balai essui glace", description:"Véhicule >= 5ans", numero: 5)
-e6 = CheckupItem.create!(name:"Balai essui glace", description:"Véhicule >= 6ans", numero: 6)
+e1 = CheckupItem.create!(name:"Balai essui-glace", description:"Véhicule >= 1an", numero: 1)
+e2 = CheckupItem.create!(name:"Balai essui-glace", description:"Véhicule >= 2ans", numero: 2)
+e3 = CheckupItem.create!(name:"Balai essui-glace", description:"Véhicule >= 3ans", numero: 3)
+e4 = CheckupItem.create!(name:"Balai essui-glace", description:"Véhicule >= 4ans", numero: 4)
+e5 = CheckupItem.create!(name:"Balai essui-glace", description:"Véhicule >= 5ans", numero: 5)
+e6 = CheckupItem.create!(name:"Balai essui-glace", description:"Véhicule >= 6ans", numero: 6)
+e7 = CheckupItem.create!(name:"Balai essui-glace", description:"Autre", numero: 7)
 
 
 g1 = CheckupItem.create!(name:"Echappement", description:"Véhicule >= 2ans", numero: 1)
 g2 = CheckupItem.create!(name:"Echappement", description:"Véhicule >= 4ans", numero: 2)
 g3 = CheckupItem.create!(name:"Echappement", description:"Véhicule >= 6ans", numero: 3)
 g4 = CheckupItem.create!(name:"Echappement", description:"Véhicule >= 8ans", numero: 4)
+g5 = CheckupItem.create!(name:"Echappement", description:"Autre", numero: 5)
 
 h1 = CheckupItem.create!(name:"Amortisseurs", description:"Véhicule >= 1an", numero: 1)
 h2 = CheckupItem.create!(name:"Amortisseurs", description:"Véhicule >= 2ans", numero: 2)
@@ -62,9 +68,13 @@ h3 = CheckupItem.create!(name:"Amortisseurs", description:"Véhicule >= 3ans", n
 h4 = CheckupItem.create!(name:"Amortisseurs", description:"Véhicule >= 4ans", numero: 4)
 h5 = CheckupItem.create!(name:"Amortisseurs", description:"Véhicule >= 5ans", numero: 5)
 h6 = CheckupItem.create!(name:"Amortisseurs", description:"Véhicule >= 6ans", numero: 6)
+h7 = CheckupItem.create!(name:"Amortisseurs", description:"Autre", numero: 7)
 
 i1 = CheckupItem.create!(name:"Bougies", description:"Bougies 60 000km", numero: 1)
 i2 = CheckupItem.create!(name:"Bougies", description:"Bougies 120 000km", numero: 2)
+i3 = CheckupItem.create!(name:"Bougies", description:"Bougies 180 000km", numero: 3)
+i4 = CheckupItem.create!(name:"Bougies", description:"Autre", numero: 4)
+
 
 j1 = CheckupItem.create!(name:"Climatisation", description:"Véhicule >= 1an", numero: 1)
 j2 = CheckupItem.create!(name:"Climatisation", description:"Véhicule >= 2ans", numero: 2)
@@ -72,10 +82,12 @@ j3 = CheckupItem.create!(name:"Climatisation", description:"Véhicule >= 3ans", 
 j4 = CheckupItem.create!(name:"Climatisation", description:"Véhicule >= 4ans", numero: 4)
 j5 = CheckupItem.create!(name:"Climatisation", description:"Véhicule >= 5ans", numero: 5)
 j6 = CheckupItem.create!(name:"Climatisation", description:"Véhicule >= 6ans", numero: 6)
+j7 = CheckupItem.create!(name:"Climatisation", description:"Autre", numero: 7)
 
 k1 = CheckupItem.create!(name:"Controle Technique", description:"1er Controle Technique", numero: 1)
 k2 = CheckupItem.create!(name:"Controle Technique", description:"2ème Controle Technique", numero: 2)
 k3 = CheckupItem.create!(name:"Controle Technique", description:"3ème Controle Technique", numero: 3)
+k4 = CheckupItem.create!(name:"Controle Technique", description:"Autre", numero: 4)
 
 l1 = CheckupItem.create!(name:"Vidange", description:"Véhicule >= 1an", numero: 1)
 l2 = CheckupItem.create!(name:"Vidange", description:"Véhicule >= 2ans", numero: 2)
@@ -83,6 +95,7 @@ l3 = CheckupItem.create!(name:"Vidange", description:"Véhicule >= 3ans", numero
 l4 = CheckupItem.create!(name:"Vidange", description:"Véhicule >= 4ans", numero: 4)
 l5 = CheckupItem.create!(name:"Vidange", description:"Véhicule >= 5ans", numero: 5)
 l6 = CheckupItem.create!(name:"Vidange", description:"Véhicule >= 6ans", numero: 6)
+l7 = CheckupItem.create!(name:"Vidange", description:"Autre", numero: 7)
 
 
 ccc = Checkup.create!(book:b1, checkup_item:c1, km_ondate:"30000")
