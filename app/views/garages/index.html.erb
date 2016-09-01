@@ -41,13 +41,16 @@
           </div>
         </div><!--/end row-->
         <!--End Service Block v3-->
+
         <div class="col-sm-12 sm-margin-bottom-20">
-
+          <br>
           <div class="headlinep"><h2>Mes entretiens réalisés </div>
-
-          <div class="colorp"> <h3> <%= link_to 'Ajouter un véhicule', edit_garage_path(@garage), { :class=>"colorp" } %></h3> </div>
+          <br>
+          <div class="colorp"> <h3> <%= link_to 'Ajouter un véhicule', edit_garage_path(@garage), { :class=>"btn-u btn-u-10 pull-left" } %></h3> </div>
+          <br>
           <!--Table Search v1-->
           <div class="table-search-v1 margin-bottom-20">
+            <br>
             <div class="table-responsive">
               <table class="table table-hover">
                 <thead>
@@ -61,7 +64,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                <% @checkups.reverse_each do |checkup| %>
+                  <% @checkups.reverse_each do |checkup| %>
                   <tr>
 
                     <td> <%= checkup.book.user.last_name %></td>
