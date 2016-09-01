@@ -86,7 +86,6 @@ class BooksController < ApplicationController
       @c.estimated_date_string = v
       @c.checkup_item = CheckupItem.where(name:"Pneus", numero: n + 1).first
       @c.save
-      fail
       new_checkup_not_done
       @c.estimated_date_string = v + z
       @c.checkup_item = CheckupItem.where(name:"Pneus", numero: n + 2).first

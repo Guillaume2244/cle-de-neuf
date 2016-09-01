@@ -1,35 +1,47 @@
 
-<div class="container content">
-  <div class="row">
-    <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
-      <div class="reg-header">
-        <h2>Ajouter un entretien
-        <p><%= link_to 'Retour sur mon véhicule', book_path(params[:book_id]) %></p></h2>
+<div class="banner" style="background-image: url('https://hd.unsplash.com/photo-1470416083061-3439059f17d9');">
+
+  <div class="container content">
+    <div class="row">
+      <div class="col-md-3 md-margin-bottom-40"></div>
+
+      <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+        <div class="reg-header">
+          <p>Ajouter un entretien </p>
+          <br>
+          <%= simple_form_for [ @book, @checkup ], url: book_checkups_path do |f| %>
+          <%= f.error_notification %>
+          <div class="pull-left">
+
+            <h4><%= select_tag :checkup_item_category, options_for_select([ "Pneus", "Freinage", "Revision", "Balai essui glace", "Catalyseur d'echappement", "Amortisseurs", "Bougies", "Climatisation", "Controle Technique", "Vidange" ], 'Pneus'), data: {
+              remote: true,
+              url: checkup_items_path, placeholder: 'Entretien'
+            } %></h4><br></div>
+            <br>
+            <h4><%= f.input :checkup_item, collection: CheckupItem.all.where(name: "Pneus"), label_method: :description, label: false %></h4>
+
+            <%= f.input :km_ondate, required: true, placeholder: 'Kilométrage actuel', label: false %>
+            <div class="pull-left"><p> Date d'ajout : <%= Date.today.strftime("%d/%m/%y")%></p></div>
+            <br>
+            <br>
+            <br>
+            <div class="pull-left">
+              <p> Votre facture </p></div>
+              <%= f.input :facture, label: false, placeholder: 'Facture' %>
+              <%= f.input :facture_cache, as: :hidden %>
 
 
-        <%= simple_form_for [ @book, @checkup ], url: book_checkups_path do |f| %>
-        <%= f.error_notification %>
-        <%= select_tag :checkup_item_category, options_for_select([ "Pneus", "Freinage", "Revision", "Balai essui glace", "Catalyseur d'echappement", "Amortisseurs", "Bougies", "Climatisation", "Controle Technique", "Vidange" ], 'Pneus'), data: {
-            remote: true,
-            url: checkup_items_path
-          } %>
+              <div class="form-actions">
+                <button class="btn-u pull-right" type="submit">Ajouter </button>
+              </div>
+              <% end %>
 
-        <%= f.input :checkup_item, collection: CheckupItem.all.where(name: "Pneus"), label_method: :description %>
-
-        <%= f.input :km_ondate, required: true, placeholder: 'Kilométrage actuel', label: false %>
-        <h4> Date de l'ajout le : <b><%= Date.today.strftime("%d/%m/%y")%></b> </h4>
-
-        <%= f.input :facture %>
-        <%= f.input :facture_cache, as: :hidden %>
-
-        <div class="form-actions">
-          <button class="btn-u pull-right" type="submit">Ajouter </button>
+            </div>
+          </div>
         </div>
-        <% end %>
-
       </div>
     </div>
   </div>
 </div>
-</div>
+
 
