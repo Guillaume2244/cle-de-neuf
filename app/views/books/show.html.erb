@@ -52,8 +52,8 @@
        <br>
        <div class="colorp"> <h3> <%= link_to 'Ajouter un entretien', new_book_checkup_path(@book), { :class=>"btn-u btn-u-9 pull-left" } %></h3> </div>
        <div class="table-search-v1 margin-bottom-20">
-       <br>
-        <div class="table-responsive">
+         <br>
+         <div class="table-responsive">
           <table class="table table-hover">
             <thead>
               <tr>
@@ -81,7 +81,7 @@
               </td>
               <td>  <%= checkup.km_ondate %>km</td>
               <td> <a target="_blank" href="<%= cloudinary_url(checkup.facture) %>" >
-                <p>Lien vers la facture</p>
+              <p><i class="fa fa-list" style="color: #72C02C;"> </i>   Votre facture</p>
               </a></td>
               <td>
               </td>
@@ -113,7 +113,6 @@
                       <th> </th>
                       <th> A effectuer le </th>
                       <th> Description     </th>
-                      <th>Facture</th>
                     </tr>
                   </thead>
                   <br>
@@ -130,7 +129,6 @@
                         <% end %></td>
                         <td> <%= checkup.estimated_date_string.to_date.strftime("%d/%m/%y")%></td>
                         <td><%= checkup.checkup_item.description %></td>
-                        <td>test</td>
                         <% end %>
                       </tr>
                       <%end%>
