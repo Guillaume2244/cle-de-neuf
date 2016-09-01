@@ -1,25 +1,47 @@
-<div class="container content">
-  <div class="row">
-    <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
-      <div class="reg-header">
-        <h2>Accéder à un carnet d'entretien</h2>
-        <p><%= link_to "Back to dashboard", :back , { :class=>"colorp" }  %></p></h2>
+<div class="banner" style="background-image: url('https://hd.unsplash.com/photo-1451481086097-f6a15d5f8d18');">
 
+  <div class="container content">
+    <div class="row margin-bottom-10">
+    <div class="col-sm-5 sm-margin-bottom-20">
+        <div class="reg-header">
+          <p><strong>Comment ça marche ?</strong></p>
+          <div class="pull-left" style="text-align: left;">
+            <br>
+            <br>
+            <p> Chaque véhicule dispose d'une clef unique</p>
+            <p>1 - Votre client doit enregistrer son véhicule</p>
+            <p>2 - Il doit ensuite vous communiquer sa clef </p>
+            <p>3 - Renseignez l'immatriculation et la clef unique</p>
+            <p>4 - Accédez et complétez son carnet d'entretien ! </p>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3 sm-margin-bottom-20">
+        <div class="reg-header">
+        </div>
+      </div>
+
+      <div class="col-sm-4 sm-margin-bottom-20">
+        <div class="reg-header">
+          <p><strong>Accéder au carnet d'entretien</strong></p>
+
+
+          <br>
+        </div>
         <br>
+        <%= simple_form_for @garage do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :registration_plate, required: true, label: false,placeholder: 'Immatriculation' %>
+        <%= f.input :token, required: true, label: false,placeholder: 'Token' %>
+        <br>
+        <div class="form-actions">
+          <%= link_to "Back to dashboard", :back , { :class=>"colorp" }  %>          <button class="btn-u btn-u-10 pull-right" type="submit">Accéder !</button>
+        </div>
+        <% end %>
       </div>
-
-      <%= simple_form_for @garage do |f| %>
-      <%= f.error_notification %>
-      <%= f.input :registration_plate, required: true, label: false,placeholder: 'Immatriculation' %>
-      <%= f.input :token, required: true, label: false,placeholder: 'Token' %>
-      <br>
-      <div class="form-actions">
-        <button class="btn-u btn-u-10 pull-right" type="submit">Accéder !</button>
-      </div>
-      <% end %>
     </div>
   </div>
 </div>
 </div>
-
 

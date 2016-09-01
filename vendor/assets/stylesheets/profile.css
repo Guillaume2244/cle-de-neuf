@@ -15,17 +15,21 @@
 	background: #f7f7f7;
 }
 
+.backg {
+  background-color: black;
+}
+
 /*Scrollbar*/
 .contentHolder {
 	padding: 0;
-	height: 320px; 
+	height: 320px;
 	margin: 0px auto;
-	overflow: hidden; 
-	position: relative; 
+	overflow: hidden;
+	position: relative;
 }
 
-.spacer { 
-  	text-align: center 
+.spacer {
+  	text-align: center
 }
 
 /*Panel Title Box*/
@@ -201,11 +205,11 @@
 	background: #fff;
 }
 
-.profile .table > thead > tr > th, 
-.profile .table > tbody > tr > th, 
-.profile .table > tfoot > tr > th, 
-.profile .table > thead > tr > td, 
-.profile .table > tbody > tr > td, 
+.profile .table > thead > tr > th,
+.profile .table > tbody > tr > th,
+.profile .table > tfoot > tr > th,
+.profile .table > thead > tr > td,
+.profile .table > tbody > tr > td,
 .profile .table > tfoot > tr > td {
 	padding: 11px;
 }
@@ -413,23 +417,23 @@
 }
 
 .alert-blocks-pending {
-	background: #fffdcc; 
+	background: #fffdcc;
 }
 
 .alert-blocks-success {
-	background: #e1febc; 
+	background: #e1febc;
 }
 
 .alert-blocks-pending {
-	background: #fffdcc; 
+	background: #fffdcc;
 }
 
 .alert-blocks-error {
-	background: #fee0e0; 
+	background: #fee0e0;
 }
 
 .alert-blocks-info {
-	background: #e0f3fe; 
+	background: #e0f3fe;
 }
 
 .alert-blocks.alert-dismissable {
@@ -813,8 +817,8 @@
 }
 
 @media (max-width: 768px) {
-	.profile .tab-v1 .nav-tabs { 
-	  	border-bottom: none;   
+	.profile .tab-v1 .nav-tabs {
+	  	border-bottom: none;
 	}
 }
 
