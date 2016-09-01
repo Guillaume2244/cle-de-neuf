@@ -33,10 +33,10 @@
         <%= simple_form_for @garage do |f| %>
         <%= f.error_notification %>
         <%= f.input :registration_plate, required: true, label: false,placeholder: 'Immatriculation' %>
-        <%= f.input :token, required: true, label: false,placeholder: 'Clef du véhicule' %>
+        <%= f.input :token, required: true, label: false, placeholder: 'Token' %>
         <br>
         <div class="form-actions">
-          <button class="btn-u btn-u-10 pull-right" type="submit">Accéder !</button>
+          <%= link_to "Back to dashboard", :back , { :class=>"colorp" }  %>          <button class="btn-u btn-u-10 pull-right" type="submit">Accéder !</button>
         </div>
         <% end %>
       </div>
