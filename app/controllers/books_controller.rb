@@ -159,11 +159,11 @@ def balai
   v = Date.today + z
   new_checkup_not_done
   @c.estimated_date_string = @book.circulation_date + ((d * n + 1) * 365)
-  @c.checkup_item = CheckupItem.where(name:"Balai essui-glace", numero: n + 1).first
+  @c.checkup_item = CheckupItem.where(name:"Balai essui glace", numero: n + 1).first
   @c.save
   new_checkup_not_done
   @c.estimated_date_string = @book.circulation_date + ((d * n + 2) * 365)
-  @c.checkup_item = CheckupItem.where(name:"Balai essui-glace", numero: n + 2).first
+  @c.checkup_item = CheckupItem.where(name:"Balai essui glace", numero: n + 2).first
   @c.save
 end
 end
@@ -179,11 +179,11 @@ def echappement
   v = Date.today + z
   new_checkup_not_done
   @c.estimated_date_string = @book.circulation_date + ((e * n + 1) * 365)
-  @c.checkup_item = CheckupItem.where(name:"Echappement", numero: n + 1).first
+  @c.checkup_item = CheckupItem.where(name:"Catalyseur d'echappement", numero: n + 1).first
   @c.save
   new_checkup_not_done
   @c.estimated_date_string = @book.circulation_date + ((e * n + 2) * 365)
-  @c.checkup_item = CheckupItem.where(name:"Echappement", numero: n + 2).first
+  @c.checkup_item = CheckupItem.where(name:"Catalyseur d'echappement", numero: n + 2).first
   @c.save
 else
   new_checkup_not_done

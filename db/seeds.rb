@@ -21,10 +21,6 @@ t1 = Template.create!(pneus_km:"40000", pneus_date:"5", freinage:"2", revision_k
   vidange_km:"10000", vidange_date:"1")
 
 
-b1 = Book.create!(registration_plate:"BL-710-MC", user:jean, initial_km: '20000', template:t1)
-b2 = Book.create!(registration_plate:"GH-789-JK", user:jean, initial_km: '1000', template:t1)
-b3 = Book.create!(registration_plate:"VV-905-VS", user:jean, initial_km: '2300', template:t1)
-b4 = Book.create!(registration_plate:"PM-7234-JP", user:jean, initial_km: '44000', template:t1)
 
 c1 = CheckupItem.create!(name:"Pneus", description:"40 000km ou > 5 ans", numero: 1)
 c2 = CheckupItem.create!(name:"Pneus", description:"80 000km ou > 10 ans", numero: 2)
@@ -47,20 +43,20 @@ d5 = CheckupItem.create!(name:"Revision", description:"75 000km ou > 5ans", nume
 d6 = CheckupItem.create!(name:"Revision", description:"90 000km ou > 6ans", numero: 6)
 d7 = CheckupItem.create!(name:"Revision", description:"Autre", numero: 7)
 
-e1 = CheckupItem.create!(name:"Balai essui-glace", description:"Véhicule >= 1an", numero: 1)
-e2 = CheckupItem.create!(name:"Balai essui-glace", description:"Véhicule >= 2ans", numero: 2)
-e3 = CheckupItem.create!(name:"Balai essui-glace", description:"Véhicule >= 3ans", numero: 3)
-e4 = CheckupItem.create!(name:"Balai essui-glace", description:"Véhicule >= 4ans", numero: 4)
-e5 = CheckupItem.create!(name:"Balai essui-glace", description:"Véhicule >= 5ans", numero: 5)
-e6 = CheckupItem.create!(name:"Balai essui-glace", description:"Véhicule >= 6ans", numero: 6)
-e7 = CheckupItem.create!(name:"Balai essui-glace", description:"Autre", numero: 7)
+e1 = CheckupItem.create!(name:"Balai essui glace", description:"Véhicule >= 1an", numero: 1)
+e2 = CheckupItem.create!(name:"Balai essui glace", description:"Véhicule >= 2ans", numero: 2)
+e3 = CheckupItem.create!(name:"Balai essui glace", description:"Véhicule >= 3ans", numero: 3)
+e4 = CheckupItem.create!(name:"Balai essui glace", description:"Véhicule >= 4ans", numero: 4)
+e5 = CheckupItem.create!(name:"Balai essui glace", description:"Véhicule >= 5ans", numero: 5)
+e6 = CheckupItem.create!(name:"Balai essui glace", description:"Véhicule >= 6ans", numero: 6)
+e7 = CheckupItem.create!(name:"Balai essui glace", description:"Autre", numero: 7)
 
 
-g1 = CheckupItem.create!(name:"Echappement", description:"Véhicule >= 2ans", numero: 1)
-g2 = CheckupItem.create!(name:"Echappement", description:"Véhicule >= 4ans", numero: 2)
-g3 = CheckupItem.create!(name:"Echappement", description:"Véhicule >= 6ans", numero: 3)
-g4 = CheckupItem.create!(name:"Echappement", description:"Véhicule >= 8ans", numero: 4)
-g5 = CheckupItem.create!(name:"Echappement", description:"Autre", numero: 5)
+g1 = CheckupItem.create!(name:"Catalyseur d'echappement", description:"Véhicule >= 2ans", numero: 1)
+g2 = CheckupItem.create!(name:"Catalyseur d'echappement", description:"Véhicule >= 4ans", numero: 2)
+g3 = CheckupItem.create!(name:"Catalyseur d'echappement", description:"Véhicule >= 6ans", numero: 3)
+g4 = CheckupItem.create!(name:"Catalyseur d'echappement", description:"Véhicule >= 8ans", numero: 4)
+g5 = CheckupItem.create!(name:"Catalyseur d'echappement", description:"Autre", numero: 5)
 
 h1 = CheckupItem.create!(name:"Amortisseurs", description:"Véhicule >= 1an", numero: 1)
 h2 = CheckupItem.create!(name:"Amortisseurs", description:"Véhicule >= 2ans", numero: 2)
@@ -98,8 +94,5 @@ l6 = CheckupItem.create!(name:"Vidange", description:"Véhicule >= 6ans", numero
 l7 = CheckupItem.create!(name:"Vidange", description:"Autre", numero: 7)
 
 
-ccc = Checkup.create!(book:b1, checkup_item:c1, km_ondate:"30000")
-
-ccd = Checkup.create!(book:b2, checkup_item:c2, km_ondate:"30000")
 
 
