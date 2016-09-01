@@ -36,19 +36,16 @@ class GaragesController < ApplicationController
     @garage = Garage.find(params[:id])
     @garage.update(garage_params)
     authorize @garage
-    @books = Book.all
-    @books.each do |book|
-      if book.registration_plate == @garage.registration_plate && book.token == @garage.token
-        @find = book
+     @book = Book.where(registration_plate: @garage.registration_plate, token: @garage.token)
+      if !@book.empty?
         flash[:notice] = "La clef véhicule est correcte, vous pouvez désormais accéder au carnet de votre client"
-      redirect_to book_path(@find)
+        redirect_to book_path(@book.first)
       else
-        flash[:alert] = "La clef véhicule est incorrecte"
+        flash[:alert] = "La clef du véhicule est incorrecte"
         render :edit
-        return
       end
-    end
   end
+
 
   private
 
