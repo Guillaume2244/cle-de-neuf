@@ -40,10 +40,10 @@ class GaragesController < ApplicationController
     @books.each do |book|
       if book.registration_plate == @garage.registration_plate && book.token == @garage.token
         @find = book
-        flash[:notice] = "La clé utilisateur est correcte, vous pouvez désormais accéder au carnet de votre client"
+        flash[:notice] = "La clef véhicule est correcte, vous pouvez désormais accéder au carnet de votre client"
       redirect_to book_path(@find)
       else
-        flash[:alert] = "La clé d'utilisateur est incorrecte"
+        flash[:alert] = "La clef véhicule est incorrecte"
         render :edit
         return
       end
