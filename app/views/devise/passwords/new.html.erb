@@ -1,23 +1,30 @@
 
-<div class="container content">
+
+
+<div class="banner" style="background-image: url('https://hd.unsplash.com/photo-1470434151738-dc5f4474c239');">
+
+ <div class="container content">
   <div class="row">
+    <div class="col-md-5 md-margin-bottom-40"></div>
     <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
       <div class="reg-header">
-        <h2>Réinitialisez votre mot de passe !</h2>
-
+      <br>
+        <p>Réinitialisez votre mot de passe </p>
+        <br>
         <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
         <%= f.error_notification %>
-
+        <br>
         <div class="form-inputs">
           <%= f.input :email, required: true, autofocus: true, placeholder: 'Votre adresse email', label: false %>
         </div>
-
+        <br>
         <div class="form-actions">
-        <button class="btn-u pull-right" type="submit">Réinitialier !</button>
+          <button class="btn-u pull-right" type="submit">Continuer</button>
         </div>
         <% end %>
 
       </div>
     </div>
   </div>
+</div>
 </div>
