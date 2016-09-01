@@ -75,8 +75,7 @@ class BooksController < ApplicationController
   def pneus
      a = @book.template.pneus_date.to_i
 
-    if @book.initial_km.to_i < @book.template.pneus_km.to_i ||
-      (@book.circulation_date + a * 365 - Date.today).to_i < 0
+    if  (@book.circulation_date + a * 365 - Date.today).to_i < 0
       n = (@book.initial_km.to_i / @book.template.pneus_km.to_i).round
       z = - ((@book.circulation_date + a * 365 - Date.today).to_i + (n * 365))
         if z < 0
@@ -87,9 +86,15 @@ class BooksController < ApplicationController
       @c.estimated_date_string = v
       @c.checkup_item = CheckupItem.where(name:"Pneus", numero: n + 1).first
       @c.save
+      fail
       new_checkup_not_done
       @c.estimated_date_string = v + z
       @c.checkup_item = CheckupItem.where(name:"Pneus", numero: n + 2).first
+      @c.save
+    else
+      new_checkup_not_done
+      @c.estimated_date_string = @book.circulation_date + (a * 365)
+      @c.checkup_item = CheckupItem.where(name:"Pneus", numero: 1).first
       @c.save
     end
   end
@@ -105,14 +110,20 @@ class BooksController < ApplicationController
        end
        v = Date.today + z
       new_checkup_not_done
-      @c.estimated_date_string = v
+      @c.estimated_date_string = @book.circulation_date + ((b * n + 1) * 365)
       @c.checkup_item = CheckupItem.where(name:"Freinage", numero: n + 1).first
       @c.save
       new_checkup_not_done
-      @c.estimated_date_string = v + z
+      @c.estimated_date_string = @book.circulation_date + ((b * n + 2) * 365)
       @c.checkup_item = CheckupItem.where(name:"Freinage", numero: n + 2).first
       @c.save
+    else
+      new_checkup_not_done
+      @c.estimated_date_string = @book.circulation_date + (2 * 365)
+      @c.checkup_item = CheckupItem.where(name:"Freinage", numero: 1).first
+      @c.save
     end
+
   end
 
 
@@ -126,11 +137,11 @@ class BooksController < ApplicationController
         end
         v = Date.today + z
       new_checkup_not_done
-      @c.estimated_date_string = v
+      @c.estimated_date_string = @book.circulation_date + ((c * n + 1) * 365)
       @c.checkup_item = CheckupItem.where(name:"Revision", numero: n + 1).first
       @c.save
       new_checkup_not_done
-      @c.estimated_date_string = v + z
+      @c.estimated_date_string = @book.circulation_date + ((c * n + 2) * 365)
       @c.checkup_item = CheckupItem.where(name:"Revision", numero: n + 2).first
       @c.save
     end
@@ -147,11 +158,11 @@ class BooksController < ApplicationController
          end
        v = Date.today + z
       new_checkup_not_done
-      @c.estimated_date_string = v
+      @c.estimated_date_string = @book.circulation_date + ((d * n + 1) * 365)
       @c.checkup_item = CheckupItem.where(name:"Balai essui glace", numero: n + 1).first
       @c.save
       new_checkup_not_done
-      @c.estimated_date_string = v + z
+      @c.estimated_date_string = @book.circulation_date + ((d * n + 2) * 365)
       @c.checkup_item = CheckupItem.where(name:"Balai essui glace", numero: n + 2).first
       @c.save
     end
@@ -167,12 +178,17 @@ class BooksController < ApplicationController
         end
       v = Date.today + z
       new_checkup_not_done
-      @c.estimated_date_string = v
+      @c.estimated_date_string = @book.circulation_date + ((e * n + 1) * 365)
       @c.checkup_item = CheckupItem.where(name:"Echappement", numero: n + 1).first
       @c.save
       new_checkup_not_done
-      @c.estimated_date_string = v + z
+      @c.estimated_date_string = @book.circulation_date + ((e * n + 2) * 365)
       @c.checkup_item = CheckupItem.where(name:"Echappement", numero: n + 2).first
+      @c.save
+    else
+      new_checkup_not_done
+      @c.estimated_date_string = @book.circulation_date + (2 * 365)
+      @c.checkup_item = CheckupItem.where(name:"Echappement", numero: 1).first
       @c.save
     end
   end
@@ -187,11 +203,11 @@ class BooksController < ApplicationController
       end
       v = Date.today + z
       new_checkup_not_done
-      @c.estimated_date_string = v
+      @c.estimated_date_string = @book.circulation_date + ((f * n + 1) * 365)
       @c.checkup_item = CheckupItem.where(name:"Amortisseurs", numero: n + 1).first
       @c.save
       new_checkup_not_done
-      @c.estimated_date_string = v + z
+      @c.estimated_date_string = @book.circulation_date + ((f * n + 2) * 365)
       @c.checkup_item = CheckupItem.where(name:"Amortisseurs", numero: n + 2).first
       @c.save
     end
@@ -203,7 +219,7 @@ class BooksController < ApplicationController
       v = (Date.today + 2 * 365)
       new_checkup_not_done
       @c.estimated_date_string = v
-      @c.checkup_item = CheckupItem.where(name:"Bougies", numero: n).first
+      @c.checkup_item = CheckupItem.where(name:"Bougies", numero: 1).first
       @c.save
     end
   end
@@ -218,11 +234,11 @@ class BooksController < ApplicationController
        end
       v = Date.today + z
       new_checkup_not_done
-      @c.estimated_date_string = v
+      @c.estimated_date_string = @book.circulation_date + ((g * n + 1) * 365)
       @c.checkup_item = CheckupItem.where(name:"Climatisation", numero: n + 1).first
       @c.save
       new_checkup_not_done
-      @c.estimated_date_string = v + z
+      @c.estimated_date_string = @book.circulation_date + ((g * n + 2) * 365)
       @c.checkup_item = CheckupItem.where(name:"Climatisation", numero: n + 2).first
       @c.save
     end
@@ -247,7 +263,7 @@ class BooksController < ApplicationController
       @c.save
     else
       new_checkup_not_done
-      @c.estimated_date_string = @book.circulation_date + h * 365
+      @c.estimated_date_string = @book.circulation_date + (h + 2) * 365
       @c.checkup_item = CheckupItem.where(name:"Controle Technique", numero: 1).first
       @c.save
    end
@@ -264,11 +280,11 @@ class BooksController < ApplicationController
        end
        v = Date.today + z
       new_checkup_not_done
-      @c.estimated_date_string = v
+      @c.estimated_date_string = @book.circulation_date + ((j * n + 1) * 365)
       @c.checkup_item = CheckupItem.where(name:"Vidange", numero: n + 1).first
       @c.save
       new_checkup_not_done
-      @c.estimated_date_string = v + z
+      @c.estimated_date_string = @book.circulation_date + ((j * n + 2) * 365)
       @c.checkup_item = CheckupItem.where(name:"Vidange", numero: n + 2).first
       @c.save
     end
