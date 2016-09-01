@@ -50,7 +50,9 @@
      <div class="col-sm-10 sm-margin-bottom-20">
        <div class="headline"><h2>Mes entretiens réalisés</div>
        <br>
+       <% if @book.user == current_user || @book.token == current_user.garages.first.token %>
        <div class="colorp"> <h3> <%= link_to 'Ajouter un entretien', new_book_checkup_path(@book), { :class=>"btn-u btn-u-9 pull-left" } %></h3> </div>
+       <% end %>
        <div class="table-search-v1 margin-bottom-20">
        <br>
         <div class="table-responsive">

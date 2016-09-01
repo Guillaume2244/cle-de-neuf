@@ -23,7 +23,7 @@ class BookPolicy < ApplicationPolicy
 
   def show?
   @garage = user.garages.first
-  record.user == user || record.is_garagiste(user) || record.registration_plate == @garage.registration_plate && record.token == @garage.token
+  record.user == user || record.is_garagiste(user) || record.registration_plate == @garage.registration_plate && record.token == @garage.token || record.publique == true
   end
 
 end

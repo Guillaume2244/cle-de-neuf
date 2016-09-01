@@ -11,8 +11,10 @@ class User < ApplicationRecord
   has_many :garages
   has_many :checkups, through: :books
 
-
   validates :email, presence: true
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :phone_number, presence: true
 
   private
 
