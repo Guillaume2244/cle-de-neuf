@@ -76,13 +76,13 @@ class BooksController < ApplicationController
    a = @book.template.pneus_date.to_i
 
 
-    if  (@book.circulation_date + a * 365 - Date.today).to_i < 0
+     if  (@book.circulation_date + a * 365 - Date.today).to_i < 0
       n = (@book.initial_km.to_i / @book.template.pneus_km.to_i).round
       z = - ((@book.circulation_date + a * 365 - Date.today).to_i + (n * 365))
         if z < 0
-        z = ((@book.circulation_date + a * 365 - Date.today).to_i + (n * 365))
+          z = ((@book.circulation_date + a * 365 - Date.today).to_i + (n * 365))
         end
-        v = Date.today + z
+      v = Date.today + z
       new_checkup_not_done
       @c.estimated_date_string = v
       @c.checkup_item = CheckupItem.where(name:"Pneus", numero: n + 1).first
@@ -96,24 +96,8 @@ class BooksController < ApplicationController
       @c.estimated_date_string = @book.circulation_date + (a * 365)
       @c.checkup_item = CheckupItem.where(name:"Pneus", numero: 1).first
       @c.save
-
     end
-    v = Date.today + z
-    new_checkup_not_done
-    @c.estimated_date_string = v
-    @c.checkup_item = CheckupItem.where(name:"Pneus", numero: n + 1).first
-    @c.save
-    new_checkup_not_done
-    @c.estimated_date_string = v + z
-    @c.checkup_item = CheckupItem.where(name:"Pneus", numero: n + 2).first
-    @c.save
-  else
-    new_checkup_not_done
-    @c.estimated_date_string = @book.circulation_date + (a * 365)
-    @c.checkup_item = CheckupItem.where(name:"Pneus", numero: 1).first
-    @c.save
   end
-end
 
 def freinage
  b = @book.template.freinage.to_i
