@@ -4,5 +4,6 @@ class CheckupItem < ApplicationRecord
   validates :name, presence: true
   validates :description, presence: true
 
+  default_scope { order(:numero) }
 end
 

@@ -40,7 +40,12 @@ class GaragesController < ApplicationController
     @books.each do |book|
       if book.registration_plate == @garage.registration_plate && book.token == @garage.token
         @find = book
+        flash[:notice] = "Successfully created..."
       redirect_to book_path(@find)
+      else
+        flash[:alert] = "The registration plate and/or the token given is/are wrong"
+        render :edit
+        return
       end
     end
   end
